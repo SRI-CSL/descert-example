@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.sri.gradle.daikon' version '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://plugins.gradle.org/m2/'
+    }
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:28.0-jre'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'junit:junit:4.13'
+}
+
+runDaikon {
+    requires = file("libs")
+    outputDir = file("${projectDir}/build/daikon-output")
+    testDriverPackage = "com.foo"
+}
