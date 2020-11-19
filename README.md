@@ -6,7 +6,7 @@ https://docs.docker.com/get-docker/
 The goal is to setup this project with CircleCI and generate evidence (in this case Randoop and Daikon results)
 as part of the build process.
 
-Currently, this project applies only the `daikon-gradle-plugin`. Unfortunately, we've not been able to produce any Daikon output.
+Currently, this project applies only the `daikon-gradle-plugin`. Unfortunately, I've not been able to produce any Daikon output.
 
 Below are a few scenarios I've tried in order to debug this project's debug process.
 
