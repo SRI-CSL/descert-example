@@ -164,5 +164,48 @@ Gradle could not start your build.
 
 Very slow. It eventually crashed due to out of memory errors.
 
+```sh
+runtime stack:
+runtime.throw(0x8b67b4, 0x16)
+	/usr/local/go/src/runtime/panic.go:774 +0x72 fp=0x7ffdc510c0c8 sp=0x7ffdc510c098 pc=0x42fa52
+runtime.sysMap(0xc000000000, 0x4000000, 0xc1b978)
+	/usr/local/go/src/runtime/mem_linux.go:169 +0xc5 fp=0x7ffdc510c108 sp=0x7ffdc510c0c8 pc=0x419d65
+runtime.(*mheap).sysAlloc(0xbfde20, 0x2000, 0x0, 0x0)
+	/usr/local/go/src/runtime/malloc.go:701 +0x1cd fp=0x7ffdc510c1b0 sp=0x7ffdc510c108 pc=0x40cfdd
+runtime.(*mheap).grow(0xbfde20, 0x1, 0xffffffff)
+	/usr/local/go/src/runtime/mheap.go:1255 +0xa3 fp=0x7ffdc510c200 sp=0x7ffdc510c1b0 pc=0x427e13
+runtime.(*mheap).allocSpanLocked(0xbfde20, 0x1, 0xc1b988, 0x1)
+	/usr/local/go/src/runtime/mheap.go:1170 +0x266 fp=0x7ffdc510c280 sp=0x7ffdc510c200 pc=0x427ca6
+runtime.(*mheap).alloc_m(0xbfde20, 0x1, 0x45002a, 0x0)
+	/usr/local/go/src/runtime/mheap.go:1022 +0xc2 fp=0x7ffdc510c2d0 sp=0x7ffdc510c280 pc=0x427542
+runtime.(*mheap).alloc.func1()
+	/usr/local/go/src/runtime/mheap.go:1093 +0x4c fp=0x7ffdc510c308 sp=0x7ffdc510c2d0 pc=0x45882c
+runtime.(*mheap).alloc(0xbfde20, 0x1, 0x1002a, 0x40000)
+	/usr/local/go/src/runtime/mheap.go:1092 +0x8a fp=0x7ffdc510c358 sp=0x7ffdc510c308 pc=0x42782a
+runtime.(*mcentral).grow(0xbfec58, 0x0)
+	/usr/local/go/src/runtime/mcentral.go:255 +0x7b fp=0x7ffdc510c398 sp=0x7ffdc510c358 pc=0x41978b
+runtime.(*mcentral).cacheSpan(0xbfec58, 0x7fe12f9f5000)
+	/usr/local/go/src/runtime/mcentral.go:106 +0x2fe fp=0x7ffdc510c3f8 sp=0x7ffdc510c398 pc=0x4192ae
+runtime.(*mcache).refill(0x7fe12f9f5008, 0x2a)
+	/usr/local/go/src/runtime/mcache.go:138 +0x85 fp=0x7ffdc510c418 sp=0x7ffdc510c3f8 pc=0x418d55
+runtime.(*mcache).nextFree(0x7fe12f9f5008, 0xc1b92a, 0x7fe12f9f5008, 0x8, 0xfffffffffffffff8)
+	/usr/local/go/src/runtime/malloc.go:854 +0x87 fp=0x7ffdc510c450 sp=0x7ffdc510c418 pc=0x40d807
+runtime.mallocgc(0x180, 0x8abc20, 0x1, 0xc1b9e0)
+	/usr/local/go/src/runtime/malloc.go:1022 +0x793 fp=0x7ffdc510c4f0 sp=0x7ffdc510c450 pc=0x40e143
+runtime.newobject(0x8abc20, 0x4000)
+	/usr/local/go/src/runtime/malloc.go:1151 +0x38 fp=0x7ffdc510c520 sp=0x7ffdc510c4f0 pc=0x40e538
+runtime.malg(0xd1f00008000, 0xc004c8)
+	/usr/local/go/src/runtime/proc.go:3232 +0x31 fp=0x7ffdc510c560 sp=0x7ffdc510c520 pc=0x438e71
+runtime.mpreinit(...)
+	/usr/local/go/src/runtime/os_linux.go:324
+runtime.mcommoninit(0xbf9120)
+	/usr/local/go/src/runtime/proc.go:626 +0xc2 fp=0x7ffdc510c598 sp=0x7ffdc510c560 pc=0x432812
+runtime.schedinit()
+	/usr/local/go/src/runtime/proc.go:543 +0x72 fp=0x7ffdc510c5f0 sp=0x7ffdc510c598 pc=0x432472
+runtime.rt0_go(0x7ffdc510c738, 0xa, 0x7ffdc510c738, 0x400530, 0x750ad1, 0x0, 0xa00000000, 0x7ffdc510c738, 0x45ab40, 0x0, ...)
+	/usr/local/go/src/runtime/asm_amd64.s:214 +0x125 fp=0x7ffdc510c5f8 sp=0x7ffdc510c5f0 pc=0x45ac75
+: unknown
+```
+
 
 
