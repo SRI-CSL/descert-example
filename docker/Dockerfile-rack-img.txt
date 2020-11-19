@@ -1,14 +1,16 @@
+# DONT USE IT
 FROM gehighassurance/rack-box:v3.0
 
 # install basics
 RUN apt-get update && apt-get install -y \
     git \
-    gradle \
     vim
 
 
-RUN cd ~ ; git clone https://github.com/SRI-CSL/daikon-gradle-plugin.git dgp
-RUN cd ~/dgp ; ./gradlew clean; ./gradlew build; ./gradlew publishToMavenLocal
+# Daikon plugin has been published to gradle plugin portal
+# so there is no need for the following two lines
+# RUN cd ~ ; git clone https://github.com/SRI-CSL/daikon-gradle-plugin.git dgp
+# RUN cd ~/dgp ; ./gradlew clean; ./gradlew build; ./gradlew publishToMavenLocal
 
 
 COPY . /usr/local/src/descert-example
