@@ -207,5 +207,28 @@ runtime.rt0_go(0x7ffdc510c738, 0xa, 0x7ffdc510c738, 0x400530, 0x750ad1, 0x0, 0xa
 : unknown
 ```
 
+**UPDATE**
+
+Did not get the oom error once I Increased memory to 8gb and number of cpus to 8 on the Docker client.
+Unfortunately, the SPARQLgraph UI stopped working.
+
+Next, we will try the following:
+
+```sh
+› docker run --detach -p 80:80 -p 12050-12092:12050-12092 gehighassurance/rack-box:v3.0
+› docker exec -it CONTAINER_ID /bin/sh
+# apt-get update && apt-get install -y git vim
+# cd ~ ; git clone https://github.com/SRI-CSL/descert-example.git
+# cd descert-example
+# ./gradlew clean; ./gradlew build; ./gradlew daikonRun --debug 
+```
+
+Then
+
+```sh
+› docker container commit CONTAINER descert/rack-box:v3.0
+```
+
+
 
 
