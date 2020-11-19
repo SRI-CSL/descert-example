@@ -3,18 +3,14 @@
 If you have not set up Docker on your computer yet, follow Docker's instructions to install Docker:
 https://docs.docker.com/get-docker/
 
+The goal is to setup this project with CircleCI and generate evidence (in this case Randoop and Daikon results)
+as part of the build process.
 
-The idea is to create a Docker image that has this project and 
-executes Daikon as part of the project's build process.
+Currently, this project applies only the `daikon-gradle-plugin`. Unfortunately, we've not been able to produce any Daikon output.
 
-Currently, this project applies only the `daikon-gradle-plugin`.
-Unfortunately, we've not been able to produce any Daikon output.
+Once we are able to generate this output, we will build this project using Circle-CI's workflows.
 
-Once we are able to generate this output, we will build this project
-using Circle-CI's workflows.
-
-Below are a few scenarios I've tried in order to produce the DesCert
-Docker image.
+Below are a few scenarios I've tried in order to produce the DesCert Docker image.
 
 # Failed scenarios
 
