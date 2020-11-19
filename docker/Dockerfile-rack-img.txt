@@ -1,0 +1,27 @@
+FROM gehighassurance/rack-box:v3.0
+
+# install basics
+RUN apt-get update && apt-get install -y \
+    git \
+    gradle \
+    vim
+
+
+RUN cd ~ ; git clone https://github.com/SRI-CSL/daikon-gradle-plugin.git dgp
+RUN cd ~/dgp ; ./gradlew clean; ./gradlew build; ./gradlew publishToMavenLocal
+
+
+COPY . /usr/local/src/descert-example
+WORKDIR /usr/local/src/descert-example
+
+RUN ./gradlew clean
+RUN ./gradlew build
+# RUN ./gradlew runDaikon
+
+# additional-config (old; dont use)
+# RUN mkdir -p /opt/src
+# WORKDIR /opt/src
+# WORKDIR /usr/local/src/descert-example
+# RUN ./gradlew daikonRun --stacktrace
+
+# ENTRYPOINT ["./gradlew", "daikonRun"]
