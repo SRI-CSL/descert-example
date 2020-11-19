@@ -79,7 +79,7 @@ Docker image.
 # FYI Working directory: /usr/local/src/descert-example/build/classes/java/test/com/foo
 ```
 
-**Additional details can be found at the `amazoncorretto:8-alpine-full` issue:** [dyncomp.log](https://github.com/SRI-CSL/descert-example/files/5563884/dyncomp.log)
+**Additional details can be found at** [dyncomp.log](https://github.com/SRI-CSL/descert-example/files/5563884/dyncomp.log)
 
 
 ## Using either gradle:6.7.1-jdk8-hotspot or openjdk:8 Docker image
