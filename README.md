@@ -23,7 +23,7 @@ Below are a few scenarios I've tried in order to debug this project's debug proc
 2. Run it
 
 ```sh
-› docker run --rm -it descert-example-circleci /bin/bash
+› docker run --rm -it descert/descert-example-circleci /bin/bash
 # ./gradlew daikonRun --debug
 ```
 
