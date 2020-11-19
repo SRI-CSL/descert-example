@@ -45,7 +45,7 @@ See log: [circleci-build.txt](https://github.com/SRI-CSL/descert-example/files/5
 2. Run it
 
 ```sh
-› docker run --rm -it descert-example-amzn /bin/bash
+› docker run --rm -it descert/descert-example-amzn /bin/bash
 # ./gradlew daikonRun --debug
 ```
 
