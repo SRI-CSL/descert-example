@@ -229,6 +229,8 @@ Then
 › docker container commit CONTAINER descert/rack-box:v3.0
 ```
 
+**Here are the results**: [dynComp-rack.txt](https://github.com/SRI-CSL/descert-example/files/5569243/dynComp-rack.txt)
+
 
 
 
