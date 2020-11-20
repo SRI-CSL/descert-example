@@ -66,6 +66,44 @@ If you want to see the `runRandoop` task in action, you can execute the followin
 2. Log file: `/usr/local/src/descert-example/randoop-log.txt`
 
 
+Here is a summary of the Randoop's results
+
+```sh
+Randoop for Java version "4.2.3, local changes, branch master, commit 6fb16d1, 2020-03-31".
+Will explore 2 classes
+PUBLIC MEMBERS=6
+Explorer = ForwardGenerator(steps: 0, null steps: 0, num_sequences_generated: 0;
+    allSequences: 0, regresson seqs: 0, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 0;
+    runtimePrimitivesSeen:38)
+
+Progress update: steps=1, test inputs generated=0, failing inputs=0      (Fri Nov 20 22:44:40 GMT 2020     9MB used)
+Progress update: steps=1000, test inputs generated=544, failing inputs=0      (Fri Nov 20 22:45:06 GMT 2020     621MB used)
+Progress update: steps=1164, test inputs generated=633, failing inputs=0      (Fri Nov 20 22:45:10 GMT 2020     84MB used)
+Normal method executions: 76753
+Exceptional method executions: 1
+
+Average method execution time (normal termination):      0.310
+Average method execution time (exceptional termination): 0.282
+Approximate memory usage 84MB
+Explorer = ForwardGenerator(steps: 1164, null steps: 531, num_sequences_generated: 633;
+    allSequences: 633, regresson seqs: 632, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 1;
+    runtimePrimitivesSeen:38)
+
+About to look for failing assertions in 328 regression sequences.
+
+Regression test output:
+Regression test count: 328
+Writing regression JUnit tests...
+Created file /usr/local/src/descert-example/src/test/java/com/foo/RegressionTest0.java
+Created file /usr/local/src/descert-example/src/test/java/com/foo/RegressionTestDriver.java
+Wrote regression JUnit tests.
+About to look for flaky methods.
+
+Invalid tests generated: 0
+Successfully generated tests
+```
+
+
 ## License
 
     Copyright (C) 2020 SRI International
