@@ -27,10 +27,10 @@ From your terminal, clone the `descert-example` project:
 › cd descert-example
 ```
 
-Then build the `arcosdescertsri/descert-example-randoop-amzncorretto` Docker image
+Then build the `vesperin/descert-example` Docker image
 
 ```sh
-› docker build -t arcosdescertsri/descert-example-randoop-amzncorretto -f docker/Dockerfile .
+› docker build -t vesperin/descert-example -f docker/Dockerfile .
 ```
 
 Building this image will triger the `runRandoop` gradle task. This task will generate regressions for the `descert-example` project and will generate a `randoop-log.txt` file. This file contains information about the tests that were generated and this information
@@ -42,14 +42,14 @@ For your convenience, we have placed a copy of the `randoop-log.txt` in the `ran
 1.b Pull Docker image
 
 ```sh
-› docker pull arcosdescertsri/descert-example-randoop-amzncorretto:latest
+› docker pull vesperin/descert-example
 ```
 
 
 2. Run it
 
 ```sh
-› docker run --rm -it arcosdescertsri/descert-example-randoop-amzncorretto /bin/bash
+› docker run --rm -it vesperin/descert-example /bin/bash
 ```
 
 If you want to see the `runRandoop` task in action, you can execute the following commands on your terminal:
