@@ -18,5 +18,6 @@ WORKDIR /usr/local/src/descert-example
 
 RUN ./gradlew clean
 RUN ./gradlew build
+# This will produce a file called randoop-log.txt
+# containing information about generated tests
 RUN ./gradlew runRandoop -Prebuild
-# RUN ./gradlew runDaikon

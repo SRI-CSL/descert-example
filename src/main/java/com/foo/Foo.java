@@ -2,6 +2,7 @@ package com.foo;
 
 public class Foo {
     public void mutate() {
-        System.out.println("foo");
+        String x = "test";
+	x = x + "Randoop gradle plugin";
     }
 }
