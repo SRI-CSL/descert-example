@@ -25,7 +25,6 @@ From your terminal, clone the `descert-example` project:
 ```sh
 › git clone http://github.com/SRI-CSL/descert-example.git
 › cd descert-example
-› git checkout randoop
 ```
 
 Then build the `arcosdescertsri/descert-example-randoop-amzncorretto` Docker image
