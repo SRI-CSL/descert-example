@@ -1,4 +1,4 @@
-FROM cimg/openjdk:8.0.272
+FROM circleci/openjdk:8-jdk
 
 # install basics
 RUN cd ~ ; git clone https://github.com/SRI-CSL/daikon-gradle-plugin.git dgp
@@ -8,9 +8,12 @@ RUN cd ~/dgp ; ./gradlew clean; ./gradlew build; ./gradlew publishToMavenLocal
 COPY . /usr/local/src/descert-example
 WORKDIR /usr/local/src/descert-example
 
+# HACK
+(cd /usr/local/src/descert-example/libs/ && ls -al daikon.jar && rm -f daikon.jar && wget https://homes.cs.washington.edu/~mernst/tmp159/daikon.jar && ls -al daikon.jar)
+
 RUN ./gradlew clean
 RUN ./gradlew build
-RUN ./gradlew runDaikon
+# RUN ./gradlew runDaikon
 
 # STATUS
 # Throws the following error when
