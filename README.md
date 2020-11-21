@@ -55,7 +55,7 @@ For your convenience, we have placed a copy of the `randoop-log.txt` in the `ran
 If you want to see the `runRandoop` task in action, you can execute the following commands on your terminal:
 
 ```sh
-# ./gradlew clean; ./gradlew build; ./gradlew runRandoop
+# ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
 ```
 
 
