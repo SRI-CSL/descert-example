@@ -8,7 +8,7 @@ https://docs.docker.com/get-docker/
 
 The goal of this project is to show how to generate evidence (in this case, Randoop results) as part of this project's build process.
 
-Currently, this project applies only the `randoop-gradle-plugin` plugin. Eventually, it will apply other plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin`, etc.
+Currently, this project applies only the `randoop-gradle-plugin` plugin. Eventually, it will apply other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin`, etc.
 
 ## Creating a Docker image for this project
 
