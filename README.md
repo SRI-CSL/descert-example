@@ -8,80 +8,47 @@ https://docs.docker.com/get-docker/
 
 The goal of this project is to show how to generate evidence (in this case, Randoop results) as part of this project's build process.
 
-Currently, this project applies only the `randoop-gradle-plugin` plugin. Eventually, it will apply other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin`, etc.
+Currently, only the `randoop-gradle-plugin` plugin is applied to `descert-example`'s build process. Eventually, other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin` will be also applied to `descert-example`'s build process.
 
-## Creating a Docker image for this project
 
-In this project example, we are using the `amazoncorretto:8-alpine-full` Docker image as our base Docker image.
+## Pulling `vesperin/descert-example` Docker image from Docker Hub
 
-If the entire image is provided to you, then you can skip step 1 and go to step 1.b. Otherwise, skip step 1.b
+This Docker image contains the `descert-example` repository and the results of a single execution of the Randoop plugin.
+
 
 ### Steps
 
-1. Build Docker image 
-
-From your terminal, clone the `descert-example` project:
-
-```sh
-› git clone http://github.com/SRI-CSL/descert-example.git
-› cd descert-example
-```
-
-Then build the `vesperin/descert-example` Docker image
-
-```sh
-› docker build -t vesperin/descert-example -f docker/Dockerfile .
-```
-
-This [docker/Dockerfile](docker/Dockerfile) contains all the commands a user could call on the command line to assemble the `vesperin/descert-example` image.
-In more detail, using the commands specified in this Dockerfile, Docker will
-
-1. Install all the necessary dependencies to build `descert-example`,
-2. Clone the [randoop-gradle-plugin](https://github.com/SRI-CSL/randoop-gradle-plugin.git) repository,
-3. Build the Randoop plug-in, as well as publish it to `Maven local`.
-
-With the Randoop plug-in published, Docker will
-
-1. Build the `descert-example` repository,
-2. Execute the `runRandoop` task, which will execute the Randoop test generator.
-
-The Randoop test generator will generate regression tests for two Java classes in the `descert-example` repository.
-From these two Java classes, it will a set of regression tests and a test driver, which executes these regression tests.
-
-The `runRandoop` task will also generate a `randoop-log.txt` file. This file contains information about the Java classes Randoop explored 
-to generate the regression tests and the test driver. It also includes information about the number unit tests that were generated,
-and how long it took to generate them.
-
-For your convenience, we have placed a copy of the `randoop-log.txt` in the `randoop-log-out` directory, which is part of this repository.
-
-
-1.b Pull Docker image
+#### 1 Pull `vesperin/descert-example` Docker image from _Docker Hub_
 
 ```sh
 › docker pull vesperin/descert-example
 ```
 
-**Note**: This will execute the `runRandoop` tasks.
-
-
-2. Run it
+#### 2. Start a new `bash` shell in a new `vesperin/descert-example` container
 
 ```sh
 › docker run --rm -it vesperin/descert-example /bin/bash
 ```
 
-If you want to see the `runRandoop` task in action, you can execute the following commands on your terminal:
+At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `randoop-log.txt` file,
+or execute the `runRandoop` task from your terminal: 
 
 ```sh
 # ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
 ```
 
 
-3. Results
+## Results
 
-1. Regression tests:  `/usr/local/src/descert-example/src/test/java/com/foo/RegressionTest0.java` and `/usr/local/src/descert-example/src/test/java/com/foo/RegressionTestDriver.java`
-2. Log file: `/usr/local/src/descert-example/randoop-log.txt`
+The `runRandoop` task will execute the Randoop test generator on the `descert-example` repository.
+This process will generate regression tests for two Java classes in this repository and a test driver for executing these tests.
+It will also generate a `randoop-log.txt` file. This file contains information about the Java classes Randoop explored 
+in order to generate these regression tests. This file also include information about the number unit tests that Randoop generated, and how long it took to generate them.
 
+The generated files can be found at:
+
+1. Regression tests: `/usr/local/src/descert-example/src/test/java/com/foo/`
+2. `randoop-log.txt`: `/usr/local/src/descert-example/
 
 Here is a summary of the Randoop's results
 
@@ -119,6 +86,38 @@ About to look for flaky methods.
 Invalid tests generated: 0
 Successfully generated tests
 ```
+
+## (Optional) Build your own Docker image
+
+(This is step is not required for there is a `descert-example` Docker image on Docker Hub)
+
+From your terminal, clone the `descert-example` project:
+
+```sh
+› git clone http://github.com/SRI-CSL/descert-example.git
+› cd descert-example
+```
+
+Then, go ahead and build the `vesperin/descert-example` Docker image by executing the following command
+
+```sh
+› docker build -t vesperin/descert-example -f docker/Dockerfile .
+```
+
+This [docker/Dockerfile](docker/Dockerfile) contains all the commands a user could call on the command line to assemble the `vesperin/descert-example` image.
+In more detail, using the commands specified in this Dockerfile, Docker will
+
+
+1. Install all the necessary dependencies to build `descert-example`,
+2. Clone the [randoop-gradle-plugin](https://github.com/SRI-CSL/randoop-gradle-plugin.git) repository,
+3. Build the Randoop plug-in, as well as publish it to `Maven local`.
+
+With the Randoop plug-in published on `Maven local`, Docker will
+
+1. Build the `descert-example` repository,
+2. Execute the `runRandoop` task, which will execute the Randoop test generator.
+
+For your convenience, we have placed a copy of the `randoop-log.txt` in the `randoop-log-out` directory, which is part of this repository.
 
 
 ## License
