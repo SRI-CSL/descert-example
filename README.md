@@ -33,8 +33,24 @@ Then build the `vesperin/descert-example` Docker image
 › docker build -t vesperin/descert-example -f docker/Dockerfile .
 ```
 
-Building this image will triger the `runRandoop` gradle task. This task will generate regressions for the `descert-example` project and will generate a `randoop-log.txt` file. This file contains information about the tests that were generated and this information
-would different on each run of the `runRandoop` task.
+This [docker/Dockerfile](docker/Dockerfile) contains all the commands a user could call on the command line to assemble the `vesperin/descert-example` image.
+In more detail, using the commands specified in this Dockerfile, Docker will
+
+1. Install all the necessary dependencies to build `descert-example`,
+2. Clone the [randoop-gradle-plugin](https://github.com/SRI-CSL/randoop-gradle-plugin.git) repository,
+3. Build the Randoop plug-in, as well as publish it to `Maven local`.
+
+With the Randoop plug-in published, Docker will
+
+1. Build the `descert-example` repository,
+2. Execute the `runRandoop` task, which will execute the Randoop test generator.
+
+The Randoop test generator will generate regression tests for two Java classes in the `descert-example` repository.
+From these two Java classes, it will a set of regression tests and a test driver, which executes these regression tests.
+
+The `runRandoop` task will also generate a `randoop-log.txt` file. This file contains information about the Java classes Randoop explored 
+to generate the regression tests and the test driver. It also includes information about the number unit tests that were generated,
+and how long it took to generate them.
 
 For your convenience, we have placed a copy of the `randoop-log.txt` in the `randoop-log-out` directory, which is part of this repository.
 
@@ -44,6 +60,8 @@ For your convenience, we have placed a copy of the `randoop-log.txt` in the `ran
 ```sh
 › docker pull vesperin/descert-example
 ```
+
+**Note**: This will execute the `runRandoop` tasks.
 
 
 2. Run it
