@@ -122,7 +122,7 @@ For your convenience, we have placed a copy of the `randoop-log.txt` in the `ran
 
 ## (Optional) Customizing `Randoop` plugin's behavior 
 
-You can custimize the plugin's behavior by updating any of its properties/settings in its `runRandoop` extension object in the project's `build.gradle` file:
+You can customize the plugin's behavior by updating any of its properties/settings in its `runRandoop` extension object in the project's `build.gradle` file:
 
 ```groovy
 runRandoop {
