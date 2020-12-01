@@ -30,8 +30,8 @@ This Docker image contains the `descert-example` repository and the results of a
 › docker run --rm -it vesperin/descert-example /bin/bash
 ```
 
-At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `randoop-log.txt` file,
-or execute the `runRandoop` task from your terminal: 
+At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `/usr/local/src/descert-example/randoop-log.txt` file,
+or execute the `runRandoop` Gradle task: 
 
 ```sh
 # ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
