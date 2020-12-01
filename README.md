@@ -18,7 +18,7 @@ This Docker image contains the `descert-example` repository and the results of a
 
 ### Steps
 
-#### 1 Pull `vesperin/descert-example` Docker image from _Docker Hub_
+#### 1. Pull `vesperin/descert-example` Docker image from _Docker Hub_
 
 ```sh
 › docker pull vesperin/descert-example
