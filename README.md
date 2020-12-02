@@ -42,7 +42,7 @@ All you have to do is the following:
 › ./gradlew build; ./gradlew publishToMavenLocal
 ```
 
-Next, we provide the steps for using the `vesperin/descert-example` Docker image,  which packages up `descert-example` with all of the parts it needs, such as libraries and other dependencies. We also provide both information about creating your own `descert-example` Docker image and configuration information for the Randoop plugin.
+Next, we provide the steps for using the `vesperin/descert-example` Docker image,  which packages up `descert-example` with all of the parts it needs, such as libraries and other dependencies. We also provide information about creating your own `descert-example` Docker image and information about configuring the Randoop plugin.
 
 
 ## Pulling `vesperin/descert-example` Docker image from Docker Hub
