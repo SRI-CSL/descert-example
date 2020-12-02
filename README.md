@@ -8,7 +8,41 @@ https://docs.docker.com/get-docker/
 
 The goal of this project is to show how to generate evidence (in this case, Randoop results) as part of this project's build process.
 
-Currently, only the `randoop-gradle-plugin` plugin is applied to `descert-example`'s build process. Eventually, other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin` will be also applied to `descert-example`'s build process.
+Currently, only the `randoop-gradle-plugin` plugin is applied to `descert-example`'s build process.
+More specifically, we add the following entry to `descert-example`'s `build.gradle` file:
+
+```groovy
+plugins {
+    ...
+	id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
+}
+```
+
+This entry adds the Randoop plugin to `descert-example` build process. More specifically,
+it exposes the following Gradle tasks, which users can execute using the `gradlew` command:
+
+-   `cleanupRandoopOutput` - Deletes Randoop-generated files in `junitOutputDir`.
+-   `checkForRandoop` - Checks if Randoop is in the project's classpath.
+-   `generateClassListFile` - Generates a classList.txt file from the current project's classes.
+-   `generateTests` - Generates unit tests with Randoop for classes in classList.txt file.
+-   `runRandoop` - Runs Randoop test generator (Main task)
+
+The main task of this plugin is the `runRandoop` Gradle task, which executes the other 4 tasks.
+
+Eventually, other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin` will be also applied to `descert-example`'s build process.
+The process for adding them to `descert-example` is as simple as adding a new entry to Gradle's `plugins{...}` object: e.g., `id 'com.sri.gradle.daikon' version '0.0.1-SNAPSHOT'`
+
+
+**Note:** If the plugin is not in either Maven Central or Gradle plugin portal, you can a locally-built version of this plugin.
+For example, you can do the following:
+
+```sh
+› git clone http://github.com/SRI-CSL/randoop-gradle-plugin.git
+› cd randoop-gradle-plugin
+› ./gradlew build; ./gradlew publishToMavenLocal
+```
+
+Next, we provide the steps for using the `vesperin/descert-example` Docker image,  which packages up `descert-example` with all of the parts it needs, such as libraries and other dependencies. We also provide both information about creating your own `descert-example` Docker image and configuration information for the Randoop plugin.
 
 
 ## Pulling `vesperin/descert-example` Docker image from Docker Hub
@@ -30,8 +64,7 @@ This Docker image contains the `descert-example` repository and the results of a
 › docker run --rm -it vesperin/descert-example /bin/bash
 ```
 
-At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `/usr/local/src/descert-example/randoop-log.txt` file,
-or execute the `runRandoop` Gradle task: 
+At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `/usr/local/src/descert-example/randoop-log.txt` file, or execute the `runRandoop` Gradle task: 
 
 ```sh
 # ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
