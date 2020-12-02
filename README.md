@@ -33,8 +33,8 @@ Eventually, other Gradle plugins such as `daikon-gradle-plugin`, and `sally-grad
 The process for adding them to `descert-example` is as simple as adding a new entry to Gradle's `plugins{...}` object: e.g., `id 'com.sri.gradle.daikon' version '0.0.1-SNAPSHOT'`
 
 
-**Note:** If the plugin is not in either Maven Central or Gradle plugin portal, you can a locally-built version of this plugin.
-For example, you can do the following:
+**Note:** If the plugin is not in either Maven Central or Gradle plugin portal, you can use a locally-built version of this plugin.
+All you have to do is the following:
 
 ```sh
 › git clone http://github.com/SRI-CSL/randoop-gradle-plugin.git
