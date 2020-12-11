@@ -6,48 +6,51 @@
 If you have not set up Docker on your computer yet, follow Docker's instructions to install Docker:
 https://docs.docker.com/get-docker/
 
-The goal of this project is to show how to generate evidence (in this case, Randoop results) as part of this project's build process.
+The goal of this project is to show how to generate evidence (in this case, Randoop and Daikon results) as part of this project's build process.
 
-Currently, only the `randoop-gradle-plugin` plugin is applied to `descert-example`'s build process.
-More specifically, we add the following entry to `descert-example`'s `build.gradle` file:
+**Important Note:** If you are using Docker, then the produced Docker image will only support the Randoop Gradle plugin. If you are not, and want to build this project, then you will need Java 8+ in order to build this project and use the Randoop and Daikon tasks.
+
+In this README, we assume you are using Docker and the Docker image of this project. This means, this project's `build.gradle` file contains the following entry:
 
 ```groovy
 plugins {
     ...
 	id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
+	// uncomment this entry if you are not using Docker
+	// and want to build this project using your own environment.
+	//id 'com.sri.gradle.daikon' version '0.0.2-SNAPSHOT'
 }
 ```
 
 This entry adds the Randoop plugin to `descert-example` build process. More specifically,
-it exposes the following Gradle tasks, which users can execute using the `gradlew` command:
+it adds the following tasks to the list of available Gradle tasks you can run with the `gradlew` command:
 
--   `cleanupRandoopOutput` - Deletes Randoop-generated files in `junitOutputDir`.
--   `checkForRandoop` - Checks if Randoop is in the project's classpath.
--   `generateClassListFile` - Generates a classList.txt file from the current project's classes.
--   `generateTests` - Generates unit tests with Randoop for classes in classList.txt file.
--   `runRandoop` - Runs Randoop test generator (Main task)
+`checkForRandoop` - Checks if Randoop is in CLASSPATH.
+`cleanupRandoopOutput` - Deletes all Randoop-generated tests.
+`generateClassListFile` - Generates a file that lists classes that Randoop will explore to generate tests.
+`generateTests` - Generates tests for a given project using Randoop (Main task).
+`randoopEvidence` - Produces an evidence artifact containing the specific details of the Randoop execution.
 
-The main task of this plugin is the `runRandoop` Gradle task, which executes the other 4 tasks.
+The main task of this plugin is the `generateTests` Gradle task, which will generate unit tests for your project using Randoop.
 
-Eventually, other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin` will be also applied to `descert-example`'s build process.
-The process for adding them to `descert-example` is as simple as adding a new entry to Gradle's `plugins{...}` object: e.g., `id 'com.sri.gradle.daikon' version '0.0.1-SNAPSHOT'`
+Eventually, other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin` will be also applied to `descert-example`'s build process. As seen above, the process for adding them to `descert-example` is as simple as adding a new entry to Gradle's `plugins{...}` object: e.g., `id 'com.sri.gradle.daikon' version '0.0.2-SNAPSHOT'`
 
 
-**Note:** If the plugin is not in either Maven Central or Gradle plugin portal, you can use a locally-built version of this plugin.
-All you have to do is the following:
+**Note:** If the plugin is not in either Maven Central or Gradle plugin portal, you can use a locally-built version of the Randoop plugin. All you have to do is the following:
 
 ```sh
 › git clone http://github.com/SRI-CSL/randoop-gradle-plugin.git
 › cd randoop-gradle-plugin
-› ./gradlew build; ./gradlew publishToMavenLocal
+› ./gradlew build
+› ./gradlew publishToMavenLocal
 ```
 
-Next, we provide the steps for using the `vesperin/descert-example` Docker image,  which packages up `descert-example` with all of the parts it needs, such as libraries and other dependencies. We also provide information about creating your own `descert-example` Docker image and information about configuring the Randoop plugin.
+Given that you are using Docker, you won't have to publish anything locally. The Docker image that you will be pulling (from Docker Hub) in a moment will do this for you. In other words, this Docker image packages up `descert-example` with all of the parts it needs in order to build it, such as libraries and other dependencies. Later in this document, we provide information about how to configure the Randoop plugin.
 
 
 ## Pulling `vesperin/descert-example` Docker image from Docker Hub
 
-This Docker image contains the `descert-example` repository and the results of a single execution of the Randoop plugin.
+Let's continue by pulling the `vesperin/descert-example` Docker image from Docker Hub. This Docker image contains the `descert-example` repository, its dependencies, and the results of a single execution of the Randoop plugin. The next steps show you how to pull this Docker image from Docker Hub and run a container from it.
 
 
 ### Steps
@@ -64,26 +67,21 @@ This Docker image contains the `descert-example` repository and the results of a
 › docker run --rm -it vesperin/descert-example /bin/bash
 ```
 
-At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `/usr/local/src/descert-example/randoop-log.txt` file, or execute the `runRandoop` Gradle task: 
+At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `/usr/local/src/descert-example/randoop-summary.txt` file, or execute the `randoopEvidence` Gradle task: 
 
 ```sh
-# ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
+# ./gradlew generateTests
 ```
 
+The above task will generate a new `/usr/local/src/descert-example/randoop-summary.txt` file, or updating an existing one.  If you one to generate the evidence artifact (`/usr/local/src/descert-example/randoop-evidence.json`), then  you can run the following tasks:
+
+```sh
+# ./gradlew randoopEvidence
+```
 
 ## Results
 
-The `runRandoop` task will execute the Randoop test generator on the `descert-example` repository.
-This process will generate regression tests for two Java classes in this repository and a test driver for executing these tests.
-It will also generate a `randoop-log.txt` file. This file contains information about the Java classes Randoop explored 
-in order to generate these regression tests. This file also include information about the number unit tests that Randoop generated, and how long it took to generate them.
-
-The generated files can be found at:
-
-1. Regression tests: `/usr/local/src/descert-example/src/test/java/com/foo/`
-2. `randoop-log.txt`: `/usr/local/src/descert-example/
-
-Here is a summary of the Randoop's results
+In summary, the `generateTests` generates both the unit tests and a test driver that execute those unit tests. It also generates a `/usr/local/src/descert-example/randoop-summary.txt` file containing a summary of a Randoop execution:
 
 ```sh
 Randoop for Java version "4.2.3, local changes, branch master, commit 6fb16d1, 2020-03-31".
@@ -118,7 +116,33 @@ About to look for flaky methods.
 
 Invalid tests generated: 0
 Successfully generated tests
+````
+
+The file generated by the `randoopEvidence` task contains the following information:
+
+```json
+{
+  "DETAILS": {
+    "NORMAL_EXECUTIONS": "306808",
+    "CHANGES": "local",
+    "EXPLORED_CLASSES": "2",
+    "AGENT": "RANDOOP",
+    "BRANCH": "master",
+    "AVG_NORMAL_TERMINATION_TIME": "0.0585",
+    "REGRESSION_TEST_COUNT": "864",
+    "INVALID_TESTS_GENERATED": "0",
+    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.283",
+    "ACTIVITY": "TEST_GENERATION",
+    "MEMORY_USAGE": "690MB",
+    "RANDOOP_VERSION": "4.2.3",
+    "DATE": "2020-03-31",
+    "PUBLIC_MEMBERS": "6",
+    "COMMIT": "6fb16d1",
+    "GENERATED_TEST_COUNT": "3"
+  }
+}
 ```
+
 
 ## (Optional) Build your own Docker image
 
@@ -134,23 +158,26 @@ From your terminal, clone the `descert-example` project:
 Then, go ahead and build the `vesperin/descert-example` Docker image by executing the following command
 
 ```sh
+in descert-example/
 › docker build -t vesperin/descert-example -f docker/Dockerfile .
 ```
 
-This [docker/Dockerfile](docker/Dockerfile) contains all the commands a user could call on the command line to assemble the `vesperin/descert-example` image.
+This [docker/Dockerfile](docker/Dockerfile) contains all the commands a user could run on the command line to assemble the `vesperin/descert-example` image.
 In more detail, using the commands specified in this Dockerfile, Docker will
 
 
 1. Install all the necessary dependencies to build `descert-example`,
 2. Clone the [randoop-gradle-plugin](https://github.com/SRI-CSL/randoop-gradle-plugin.git) repository,
 3. Build the Randoop plug-in, as well as publish it to `Maven local`.
+4. Clone the [daikon-gradle-plugin](https://github.com/SRI-CSL/daikon-gradle-plugin.git) repository,
+5. Build the Daikon plug-in, as well as publish it to `Maven local`.
 
 With the Randoop plug-in published on `Maven local`, Docker will
 
 1. Build the `descert-example` repository,
-2. Execute the `runRandoop` task, which will execute the Randoop test generator.
+2. Execute the `randoopEvidence` task, which will execute not only the Randoop test generator but also generate the evidence artifact.
 
-For your convenience, we have placed a copy of the `randoop-log.txt` in the `randoop-log-out` directory, which is part of this repository.
+For your convenience, we have placed a copy of the `randoop-summary.txt` and `randoop-evidence.json` files in the `randoop-log-out` directory, which is part of this repository.
 
 
 ## (Optional) Customizing `Randoop` plugin's behavior 
@@ -185,6 +212,71 @@ On this extension object, you can change the following settings:
 * `outputLimit`=_int_. The number of error-revealing and regression tests reaches the output limit.
 * `junitPackageName`=_string_. Name of the package for the generated JUnit files. When the package is the same as the package of a class under test, then package visibility rules are used to determine whether to include the class or class members in a test.
 
+
+## (Optional) Using the `Daikon` plugin
+
+If you are not using the Docker image and are trying to use both Randoop and Daikon plugins, the the following information can give you an idea about how to do that.
+Let's assume you have already cloned the `descert-example` repository and have published the Randoop and Daikon plugins to Maven local.
+Information about how to do that is provided in previous sections.
+
+From your terminal, run the following commands:
+
+```sh
+in descert-example/ on main
+› ./gradlew generateTests; 
+› ./gradlew runDaikon
+› ./gradlew evidenceDaikon
+```
+
+First, besides generating unit tests and their test driver, the `generateTests` will compile them. The Daikon plugin will the compiled test classes (particularly the compiled test driver) and then will run Daikon.
+Lastly, using the output of the `runDaikon` task, the `evidenceDaikon` will generate an evidence artifact; i.e., `daikon-evidence.json`.
+
+Here is a snippet of the `*TestDriver.inv.txt` (one of the files generated by the `runDaikon` task):
+
+```text
+===========================================================================
+com.foo.Foo:::OBJECT
+===========================================================================
+com.foo.Foo.Foo():::EXIT
+===========================================================================
+com.foo.Foo.mutate():::ENTER
+===========================================================================
+com.foo.Foo.mutate():::EXIT
+===========================================================================
+com.foo.FooManager:::OBJECT
+===========================================================================
+com.foo.FooManager.FooManager(com.foo.Foo):::ENTER
+===========================================================================
+com.foo.FooManager.FooManager(com.foo.Foo):::EXIT
+===========================================================================
+com.foo.FooManager.initialize():::ENTER
+this.foo != null
+===========================================================================
+com.foo.FooManager.initialize():::EXIT
+this.foo == orig(this.foo)
+this.foo != null
+===========================================================================
+```
+
+The following file is the evidence artifact generated by the `daikonEvidence` task:
+
+```json
+{
+  "DETAILS": {
+    "INVARIANT_COUNT": "3",
+    "PP_COUNT": "871",
+    "CORES": "16",
+    "MEMORY_AVAILABLE_TO_JVM_IN_BYTES": "362283008",
+    "AGENT": "DAIKON",
+    "CLASSES_COUNT": "2",
+    "DAIKON_OUT": "/Users/userid/dev/descert-example/build/daikon-output",
+    "ACTIVITY": "DYNAMIC_ANALYSIS",
+    "TESTS_COUNT": "869",
+    "TEST_DRIVER_PKG": "com.foo",
+    "JVM_MEMORY_LIMIT_IN_BYTES": "477626368"
+  }
+}
+```
 
 ## License
 

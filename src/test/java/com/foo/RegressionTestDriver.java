@@ -5064,6 +5064,132 @@ public class RegressionTestDriver {
             hadFailure = true;
             e.printStackTrace();
         }
+        try {
+            t1.test844();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test845();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test846();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test847();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test848();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test849();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test850();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test851();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test852();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test853();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test854();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test855();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test856();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test857();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test858();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test859();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test860();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test861();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test862();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test863();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
+        try {
+            t1.test864();
+        } catch (Throwable e) {
+            hadFailure = true;
+            e.printStackTrace();
+        }
         if (hadFailure) {
             System.exit(1);
         }
