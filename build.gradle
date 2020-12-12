@@ -1,8 +1,6 @@
 plugins {
     id 'java'
     id 'maven-publish'
-	id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
-	id 'com.sri.gradle.daikon' version '0.0.2-SNAPSHOT'
 }
 
 repositories {
@@ -22,25 +20,4 @@ dependencies {
 tasks.withType(Javadoc){
 	enabled = false
 }
-
-
-runRandoop {
-    randoopJar = file("libs/randoop.jar")
-    junitOutputDir = file("${projectDir}/src/test/java")
-    timeoutSeconds = 30
-    stopOnErrorTest = false
-    flakyTestBehavior = 'output'
-    noErrorRevealingTests = true
-    junitReflectionAllowed = false
-    usethreads = true
-    outputLimit = 2000
-    junitPackageName = 'com.foo'
-}
-
-runDaikon {
-    requires = file("libs")
-    outputDir = file("${projectDir}/build/daikon-output")
-    testDriverPackage = "com.foo"
-}
-
 
