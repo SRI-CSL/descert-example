@@ -15,10 +15,10 @@ RUN cd ~/rgp ; ./gradlew clean; ./gradlew build; ./gradlew publishToMavenLocal
 RUN cd ~ ; git clone https://github.com/SRI-CSL/daikon-gradle-plugin.git dgp
 RUN cd ~/dgp ; ./gradlew clean; ./gradlew build; ./gradlew publishToMavenLocal
 
-
+# descert-example's libs dir contains Daikon 5.8.6 (latest release)
 COPY . /usr/local/src/descert-example
 # Gets a new version of Daikon
-RUN (cd /usr/local/src/descert-example/libs && ls -al daikon.jar && rm -f daikon.jar && wget https://homes.cs.washington.edu/~mernst/tmp159/daikon.jar && ls -al daikon.jar)
+# RUN (cd /usr/local/src/descert-example/libs && ls -al daikon.jar && rm -f daikon.jar && wget https://homes.cs.washington.edu/~mernst/tmp159/daikon.jar && ls -al daikon.jar)
 WORKDIR /usr/local/src/descert-example
 
 RUN ./gradlew clean
@@ -32,5 +32,5 @@ RUN ./gradlew randoopEvidence
 RUN rm -rf /usr/local/src/descert-example/com
 
 # Runs Daikon
-# RUN ./gradlew runDaikon
-# RUN ./gradlew daikonEvidence
+RUN ./gradlew runDaikon
+RUN ./gradlew daikonEvidence
