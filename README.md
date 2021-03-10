@@ -190,22 +190,27 @@ For example, here is the content of `randoop-evidence.json` and `daikon-evidence
 ```json
 {
   "DETAILS": {
-    "NORMAL_EXECUTIONS": "85887",
-    "CHANGES": "local",
-    "EXPLORED_CLASSES": "2",
-    "AGENT": "RANDOOP",
-    "BRANCH": "master",
-    "AVG_NORMAL_TERMINATION_TIME": "0.245",
-    "REGRESSION_TEST_COUNT": "355",
+    "REGRESSION_TEST_COUNT": "834",
     "INVALID_TESTS_GENERATED": "0",
-    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.283",
-    "ACTIVITY": "TEST_GENERATION",
-    "MEMORY_USAGE": "16MB",
     "RANDOOP_VERSION": "4.2.3",
-    "DATE": "2020-03-31",
-    "PUBLIC_MEMBERS": "6",
+    "EXPLORED_CLASSES": "2",
+    "NORMAL_EXECUTIONS": "290613",
+    "CHANGES": "local",
+    "AGENT": "RANDOOP",
     "COMMIT": "6fb16d1",
-    "GENERATED_TEST_COUNT": "3"
+    "AVG_NORMAL_TERMINATION_TIME": "0.0612",
+    "PUBLIC_MEMBERS": "6",
+    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.186",
+    "GENERATED_TEST_FILES": [
+      "src/test/java/com/foo/RegressionTest0.java",
+      "src/test/java/com/foo/RegressionTest1.java",
+      "src/test/java/com/foo/RegressionTestDriver.java"
+    ],
+    "BRANCH": "master",
+    "ACTIVITY": "TEST_GENERATION",
+    "GENERATED_TEST_FILES_COUNT": "3",
+    "MEMORY_USAGE": "248MB",
+    "DATE": "2020-03-31"
   }
 }
 ```
@@ -213,17 +218,24 @@ For example, here is the content of `randoop-evidence.json` and `daikon-evidence
 ```json
 {
   "DETAILS": {
-    "INVARIANT_COUNT": "3",
-    "PP_COUNT": "360",
-    "CORES": "1",
-    "MEMORY_AVAILABLE_TO_JVM_IN_BYTES": "259719168",
-    "AGENT": "DAIKON",
-    "CLASSES_COUNT": "2",
-    "DAIKON_OUT": "/Users/userid/dev/descert-example/build/daikon-output",
+    "PP_COUNT": "5",
+    "TEST_DRIVER": "src/test/java/com/foo/RegressionTestDriver.java",
+    "DATE": "2021-3-4",
     "ACTIVITY": "DYNAMIC_ANALYSIS",
-    "TESTS_COUNT": "358",
-    "TEST_DRIVER_PKG": "com.foo",
-    "JVM_MEMORY_LIMIT_IN_BYTES": "518979584"
+    "AGENT": "DAIKON",
+    "MEMORY_AVAILABLE_TO_JVM_IN_BYTES": "354942976",
+    "CLASSES_COUNT": "1",
+    "JVM_MEMORY_LIMIT_IN_BYTES": "477626368",
+    "INVARIANT_COUNT": "0",
+    "SUPPORT_FILES": [
+      "build/daikon-output/RegressionTestDriver.dtrace.gz",
+      "build/daikon-output/RegressionTestDriver.decls-DynComp",
+      "build/daikon-output/RegressionTestDriver.inv.gz"
+    ],
+    "TEST_DRIVER_PACKAGE": "com.foo",
+    "TESTS_COUNT": "4",
+    "CORES": "16",
+    "INVARIANTS_FILE": "build/daikon-output/RegressionTestDriver.inv.txt"
   }
 }
 ```
