@@ -6,156 +6,35 @@
 If you have not set up Docker on your computer yet, follow Docker's instructions to install Docker:
 https://docs.docker.com/get-docker/
 
-The goal of this project is to show how to generate evidence (in this case, Randoop results) as part of this project's build process.
+The goal of this repo is to show how to generate evidence with Baseline DesCert's Gradle plugins as part 
+of this repos' own build process. Only Randoop and Daikon tasks are currently supported. These tasks
+use Randoop 4.2.3 and Daikon 5.8.6.
 
-Currently, only the `randoop-gradle-plugin` plugin is applied to `descert-example`'s build process.
-More specifically, we add the following entry to `descert-example`'s `build.gradle` file:
+**Important Note:** If you are not using Docker, and want to build this project on your own machine, then
+you need Java 8+ in order to build this repo and use both the Randoop and Daikon tasks. In this README, we 
+assume you are using Docker and the Docker image we are about to build for this repo. 
+
+## Configuration
+
+### Add Gradle plugins
+
+We start by adding the following plugins to this repo's `build.gradle` file:
 
 ```groovy
 plugins {
-    ...
+    id 'java'
+    id 'maven-publish'
+	id 'com.sri.gradle.daikon' version '0.0.2-SNAPSHOT'
 	id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
 }
 ```
 
-This entry adds the Randoop plugin to `descert-example` build process. More specifically,
-it exposes the following Gradle tasks, which users can execute using the `gradlew` command:
+The first two entries add tasks for building Java projects and tasks for publishing build artifacts to an 
+Apache Maven repository. The last two entries add tasks for executing both Randoop and Daikon tools. 
 
--   `cleanupRandoopOutput` - Deletes Randoop-generated files in `junitOutputDir`.
--   `checkForRandoop` - Checks if Randoop is in the project's classpath.
--   `generateClassListFile` - Generates a classList.txt file from the current project's classes.
--   `generateTests` - Generates unit tests with Randoop for classes in classList.txt file.
--   `runRandoop` - Runs Randoop test generator (Main task)
-
-The main task of this plugin is the `runRandoop` Gradle task, which executes the other 4 tasks.
-
-Eventually, other Gradle plugins such as `daikon-gradle-plugin`, and `sally-gradle-plugin` will be also applied to `descert-example`'s build process.
-The process for adding them to `descert-example` is as simple as adding a new entry to Gradle's `plugins{...}` object: e.g., `id 'com.sri.gradle.daikon' version '0.0.1-SNAPSHOT'`
-
-
-**Note:** If the plugin is not in either Maven Central or Gradle plugin portal, you can use a locally-built version of this plugin.
-All you have to do is the following:
-
-```sh
-› git clone http://github.com/SRI-CSL/randoop-gradle-plugin.git
-› cd randoop-gradle-plugin
-› ./gradlew build; ./gradlew publishToMavenLocal
-```
-
-Next, we provide the steps for using the `vesperin/descert-example` Docker image,  which packages up `descert-example` with all of the parts it needs, such as libraries and other dependencies. We also provide information about creating your own `descert-example` Docker image and information about configuring the Randoop plugin.
-
-
-## Pulling `vesperin/descert-example` Docker image from Docker Hub
-
-This Docker image contains the `descert-example` repository and the results of a single execution of the Randoop plugin.
-
-
-### Steps
-
-#### 1. Pull `vesperin/descert-example` Docker image from _Docker Hub_
-
-```sh
-› docker pull vesperin/descert-example
-```
-
-#### 2. Start a new `bash` shell in a new `vesperin/descert-example` container
-
-```sh
-› docker run --rm -it vesperin/descert-example /bin/bash
-```
-
-At this point, you could either explore the results of a single execution of the Randoop plugin simply by examining the `/usr/local/src/descert-example/randoop-log.txt` file, or execute the `runRandoop` Gradle task: 
-
-```sh
-# ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
-```
-
-
-## Results
-
-The `runRandoop` task will execute the Randoop test generator on the `descert-example` repository.
-This process will generate regression tests for two Java classes in this repository and a test driver for executing these tests.
-It will also generate a `randoop-log.txt` file. This file contains information about the Java classes Randoop explored 
-in order to generate these regression tests. This file also include information about the number unit tests that Randoop generated, and how long it took to generate them.
-
-The generated files can be found at:
-
-1. Regression tests: `/usr/local/src/descert-example/src/test/java/com/foo/`
-2. `randoop-log.txt`: `/usr/local/src/descert-example/
-
-Here is a summary of the Randoop's results
-
-```sh
-Randoop for Java version "4.2.3, local changes, branch master, commit 6fb16d1, 2020-03-31".
-Will explore 2 classes
-PUBLIC MEMBERS=6
-Explorer = ForwardGenerator(steps: 0, null steps: 0, num_sequences_generated: 0;
-    allSequences: 0, regresson seqs: 0, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 0;
-    runtimePrimitivesSeen:38)
-
-Progress update: steps=1, test inputs generated=0, failing inputs=0      (Fri Nov 20 22:44:40 GMT 2020     9MB used)
-Progress update: steps=1000, test inputs generated=544, failing inputs=0      (Fri Nov 20 22:45:06 GMT 2020     621MB used)
-Progress update: steps=1164, test inputs generated=633, failing inputs=0      (Fri Nov 20 22:45:10 GMT 2020     84MB used)
-Normal method executions: 76753
-Exceptional method executions: 1
-
-Average method execution time (normal termination):      0.310
-Average method execution time (exceptional termination): 0.282
-Approximate memory usage 84MB
-Explorer = ForwardGenerator(steps: 1164, null steps: 531, num_sequences_generated: 633;
-    allSequences: 633, regresson seqs: 632, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 1;
-    runtimePrimitivesSeen:38)
-
-About to look for failing assertions in 328 regression sequences.
-
-Regression test output:
-Regression test count: 328
-Writing regression JUnit tests...
-Created file /usr/local/src/descert-example/src/test/java/com/foo/RegressionTest0.java
-Created file /usr/local/src/descert-example/src/test/java/com/foo/RegressionTestDriver.java
-Wrote regression JUnit tests.
-About to look for flaky methods.
-
-Invalid tests generated: 0
-Successfully generated tests
-```
-
-## (Optional) Build your own Docker image
-
-(This is step is not required for there is a `descert-example` Docker image on Docker Hub)
-
-From your terminal, clone the `descert-example` project:
-
-```sh
-› git clone http://github.com/SRI-CSL/descert-example.git
-› cd descert-example
-```
-
-Then, go ahead and build the `vesperin/descert-example` Docker image by executing the following command
-
-```sh
-› docker build -t vesperin/descert-example -f docker/Dockerfile .
-```
-
-This [docker/Dockerfile](docker/Dockerfile) contains all the commands a user could call on the command line to assemble the `vesperin/descert-example` image.
-In more detail, using the commands specified in this Dockerfile, Docker will
-
-
-1. Install all the necessary dependencies to build `descert-example`,
-2. Clone the [randoop-gradle-plugin](https://github.com/SRI-CSL/randoop-gradle-plugin.git) repository,
-3. Build the Randoop plug-in, as well as publish it to `Maven local`.
-
-With the Randoop plug-in published on `Maven local`, Docker will
-
-1. Build the `descert-example` repository,
-2. Execute the `runRandoop` task, which will execute the Randoop test generator.
-
-For your convenience, we have placed a copy of the `randoop-log.txt` in the `randoop-log-out` directory, which is part of this repository.
-
-
-## (Optional) Customizing `Randoop` plugin's behavior 
-
-You can customize the plugin's behavior by updating any of its properties/settings in its `runRandoop` extension object in the project's `build.gradle` file:
+### Configure Randoop and Daikon plugins
+ 
+Next, we configure the Randoop and Daikon plugins:
 
 ```groovy
 runRandoop {
@@ -170,21 +49,184 @@ runRandoop {
     outputLimit = 2000
     junitPackageName = 'com.foo'
 }
+
+// Uncomment this when running descert-example in a docker container.
+runDaikon {
+    requires = file("libs")
+    outputDir = file("${projectDir}/build/daikon-output")
+    testDriverPackage = "com.foo"
+}
 ```
 
-On this extension object, you can change the following settings:
+### Manage plugins
 
-* `randoopJar`=_file_. The location where the plugin can find Randoop.
-* `junitOutputDir`=_file_. Randoop output directory
-* `timeoutSeconds`=_int_. Maximum number of seconds to spend generating tests. Zero means no limit. If nonzero, Randoop is nondeterministic: it may generate different test suites on different runs.
-* `stopOnErrorTest`=_boolean_. Stop generation as soon as one error-revealing test has been generated. (default false)
-* `flakyTestBehavior`=_enum_. What to do if Randoop generates a flaky test. A flaky test is one that behaves differently on different executions. Options include: (1) halt: Randoop halts with a diagnostic message; (2) discard: Discard the flaky test; (3) output: Output the flaky test, but with flaky assertions commented out.
-* `noErrorRevealingTests`=_boolean_. Whether to output error-revealing tests.
-* `junitReflectionAllowed`=_boolean_. Whether to use JUnit's standard reflective mechanisms for invoking tests.
-* `usethreads`=_boolean_. If true, Randoop executes each test in a separate thread and kills tests that take too long to finish.
-* `outputLimit`=_int_. The number of error-revealing and regression tests reaches the output limit.
-* `junitPackageName`=_string_. Name of the package for the generated JUnit files. When the package is the same as the package of a class under test, then package visibility rules are used to determine whether to include the class or class members in a test.
+Lastly, we update the `settings.gradle` to make sure this repo knows where to look
+for the Randoop and Daikon plugins, or any other plugins:
 
+```groovy
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+```
+
+**Note:** If the plugin is not in either Maven Central or Gradle plugin portal, you can use a locally-built version of the Randoop and Daikon plugins. All you have to do is the following:
+
+```sh
+› git clone http://github.com/SRI-CSL/<randoop|daikon>-gradle-plugin.git
+› cd <randoop|daikon>-gradle-plugin
+› ./gradlew build
+› ./gradlew publishToMavenLocal
+```
+
+## Randoop and Daikon Gradle tasks
+
+### Randoop tasks
+
+Currently, we support the following Randoop Gradle tasks:
+
+`randoopEvidence` - Produces an evidence artifact containing the specific details of the Randoop execution.
+`generateTests` - Generates tests for a given project using Randoop (Main task).
+`generateClassListFile` - Generates a file that lists classes that Randoop will explore to generate tests.
+`cleanupRandoopOutput` - Deletes all Randoop-generated tests.
+`checkForRandoop` - Checks if Randoop is in CLASSPATH.
+
+The ordering of the above tasks is intented to show some dependencies between tasks. 
+For example, in order to perform the `generateClassListFile`, you must perform `cleanupRandoopOutput`
+and `checkForRandoop` first (in that order).
+
+You can run any of the above Gradle tasks using the `gradlew` command. For example, you can ask the Randoop
+tool to generate unit tests for this repo by executing the `generateTests` task: 
+
+```sh
+› ./gradlew generateTests
+```
+
+### Daikon Gradle tasks
+
+The Daikon plugin support the following tasks: 
+
+- `daikonEvidence` - Produces an evidence artifact containing the specific details of the Daikon execution.
+- `runDaikon` - Detection of likely program invariants using Daikon (Main task).
+- `generateTestDriverCode` - Generates test driver code that Daikon can execute (Optional task).
+- `daikonCheck` - Checks if Daikon is in your project's classpath.
+
+**Test driver trigger*
+
+-   `-Pdriver` - Tells the plugin to invoke `generateTestDriverCode` task. When finished, it places the generated test driver at `build/driver` directory.
+
+If `-Pdriver` is not provided, then the plugin assumes there is already test driver it can use with Daikon.
+For example, the following commands will generate a test driver before invoking the `daikonEvidence` task:
+
+```sh
+› ./gradlew daikonEvidence -Pdriver
+```
+
+## Docker
+
+### Build your own Docker image
+
+We assume you have already cloned the `descert-example` repo and also have changed your
+directory to `descert-example`. If you have not, go ahead and run the following commands on your
+terminal:
+
+```sh
+› git clone http://github.com/SRI-CSL/descert-example.git
+› cd descert-example
+```
+
+Then, assuming your working directory is now `descert-example`, go ahead and build the `descert/randoop-4-2-3-daikon-5-8-6-amzn-alpine-full` Docker image by executing the
+following command
+
+```sh
+in descert-example/
+› docker build -t descert/randoop-4-2-3-daikon-5-8-6-amzn-alpine-full -f docker/Dockerfile .
+```
+
+From your terminal, run the `docker images` to see the just built image
+
+```sh
+› docker images
+REPOSITORY                              				TAG             IMAGE ID	CREATED        SIZE
+descert/randoop-4-2-3-daikon-5-8-6-amzn-alpine-full   	latest          <ID>   	22 hours ago   1.13GB
+amazoncorretto                          				8-alpine-full   <ID>   	5 days ago     201MB
+```
+
+This [docker/Dockerfile](docker/Dockerfile) contains all the commands a user could run on the command line to assemble the `descert/randoop-4-2-3-daikon-5-8-6-amzn-alpine-full` image.
+In more detail, using the commands specified in this Dockerfile, Docker will
+
+
+1. Install all the necessary dependencies to build `descert-example`,
+2. Clone the [randoop-gradle-plugin](https://github.com/SRI-CSL/randoop-gradle-plugin.git) repository,
+3. Build the Randoop plug-in, as well as publish it to `Maven local`.
+4. Clone the [daikon-gradle-plugin](https://github.com/SRI-CSL/daikon-gradle-plugin.git) repository,
+5. Build the Daikon plug-in, as well as publish it to `Maven local`.
+
+With the Randoop and Daikon plugins published to `Maven local`, Docker will
+
+1. Build the `descert-example` repository,
+2. Execute the `randoopEvidence`, `runDaikon`, and `daikonEvidence` tasks.
+
+
+
+### Create a Docker container from built Docker image
+
+From your terminal, run the following commands:
+
+```sh
+in descert-example/
+› docker run --rm -it descert/randoop-4-2-3-daikon-5-8-6-amzn-alpine-full /bin/bash
+bash-5.0#
+```
+
+If the  build of `descert-example` was a successful build, then the Randoop and Daikon evidence files
+should be available and review. More specifically, the files `randoop-evidence.json`, 
+`randoop-summary.txt`, and `daikon-evidence.json` should be available.
+
+For example, here is the content of `randoop-evidence.json` and `daikon-evidence.json` files:
+
+```json
+{
+  "DETAILS": {
+    "NORMAL_EXECUTIONS": "85887",
+    "CHANGES": "local",
+    "EXPLORED_CLASSES": "2",
+    "AGENT": "RANDOOP",
+    "BRANCH": "master",
+    "AVG_NORMAL_TERMINATION_TIME": "0.245",
+    "REGRESSION_TEST_COUNT": "355",
+    "INVALID_TESTS_GENERATED": "0",
+    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.283",
+    "ACTIVITY": "TEST_GENERATION",
+    "MEMORY_USAGE": "16MB",
+    "RANDOOP_VERSION": "4.2.3",
+    "DATE": "2020-03-31",
+    "PUBLIC_MEMBERS": "6",
+    "COMMIT": "6fb16d1",
+    "GENERATED_TEST_COUNT": "3"
+  }
+}
+```
+
+```json
+{
+  "DETAILS": {
+    "INVARIANT_COUNT": "3",
+    "PP_COUNT": "360",
+    "CORES": "1",
+    "MEMORY_AVAILABLE_TO_JVM_IN_BYTES": "259719168",
+    "AGENT": "DAIKON",
+    "CLASSES_COUNT": "2",
+    "DAIKON_OUT": "/Users/userid/dev/descert-example/build/daikon-output",
+    "ACTIVITY": "DYNAMIC_ANALYSIS",
+    "TESTS_COUNT": "358",
+    "TEST_DRIVER_PKG": "com.foo",
+    "JVM_MEMORY_LIMIT_IN_BYTES": "518979584"
+  }
+}
+```
 
 ## License
 
