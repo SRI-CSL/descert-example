@@ -30,14 +30,13 @@ runRandoop {
     timeoutSeconds = 30
     stopOnErrorTest = false
     flakyTestBehavior = 'output'
-    noErrorRevealingTests = true
+    noErrorRevealingTests = false
     junitReflectionAllowed = false
     usethreads = true
     outputLimit = 2000
     junitPackageName = 'com.foo'
 }
 
-// Uncomment this when running descert-example in a docker container.
 runDaikon {
     requires = file("libs")
     outputDir = file("${projectDir}/build/daikon-output")
