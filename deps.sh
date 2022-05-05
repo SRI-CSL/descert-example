@@ -9,8 +9,8 @@ pushd ${DIR} &>/dev/null
 
 # Downloads resources needed by the project
 
-mkdir -p .reqs.d
-pushd .reqs.d &>/dev/null
+mkdir -p .dst.d
+pushd .dst.d &>/dev/null
 
 # 1. Download the corpus.json, which specifies which GitHub
 # repositories to download (No need to go inside this directory)
@@ -112,6 +112,6 @@ fi
 
 popd &>/dev/null # Exit tools
 
-popd &>/dev/null # Exit .reqs.d
+popd &>/dev/null # Exit .dst.d
 
 popd &>/dev/null # Exit project's dir
