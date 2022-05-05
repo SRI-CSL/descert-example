@@ -198,7 +198,7 @@ def fetch_repos_cmd(repos, rs, build):
   click.echo("Downloaded repositories:\n")
   click.echo('\n'.join([f"\t{repo_info.project}: {repo_info.project_dir}" for repo_info in repos_info_out]))
 
-@cl.cli.command("descert-data", help="Generate DesCert evidence data")
+@cl.cli.command("produce-evidence", help="Generate DesCert evidence data")
 @cl.pass_repos
 def run_descert_cmd(repos):
   # make sure we look in the right directories
