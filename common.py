@@ -9,6 +9,7 @@ import re
 import shutil
 import subprocess
 import sys
+import timeit
 import traceback
 from contextlib import contextmanager
 from enum import Enum
@@ -241,14 +242,14 @@ def install_deps(repos):
   
   if os.path.isdir(DREQS) and not repos.force:
     return True, stats
-  
-  watch = utils.Stopwatch(stdout=print, debug=repos.debug)
+
+  start_time = timeit.default_timer()
   # downloads dependencies:
   # 1. Downloads do-like-javac, its preprocessing tools, and
   # the set of software repositories to be analyzed
   installer_dljc = ["./deps.sh"]
   stats = run_cmd(installer_dljc, stdout=print, verbose=repos.debug)
-  stats["elapsed"] = watch.elapsed()
+  stats["elapsed"] = timeit.default_timer() - start_time
   return stats["return_code"] == 0, stats
 
 # @keep
@@ -366,9 +367,11 @@ def run_cmd(cmd, stdout=None, timeout=None, verbose=True):
         stdout("Timed out after {}s on {}".format(timeout, friendly_cmd))
         stats["timed_out"] = True
         proc.kill()
+    
     print("Running {}".format(friendly_cmd))
     stdout("Running {}".format(friendly_cmd))
-    watch = utils.Stopwatch(stdout=stdout, debug=verbose)
+
+    start_time = timeit.default_timer()
     try:
         process = subprocess.Popen(
             cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
@@ -385,7 +388,8 @@ def run_cmd(cmd, stdout=None, timeout=None, verbose=True):
         stats["return_code"] = process.returncode
         if timer:
             timer.cancel()
-        watch.reset_and_log("Executed {}".format(friendly_cmd))
+        end_time = timeit.default_timer() - start_time
+        logger.debug(f"Executed {friendly_cmd} in {end_time}ms")
     except (TypeError, ValueError, subprocess.SubprocessError):
         stdout(f"Call to {friendly_cmd} failed. See:\n{traceback.format_exc()}")
     return stats
