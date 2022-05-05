@@ -10,8 +10,8 @@ from tempfile import TemporaryDirectory
 import click
 from dataclass_csv import DataclassWriter, DataclassReader
 
-from . import cli as cl
-from . import common, executor, fetch, utils
+import common, executor, fetch, utils
+import cli as cl
 
 logger = utils.create_logger(__file__)
 

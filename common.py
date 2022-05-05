@@ -16,7 +16,7 @@ from threading import Timer
 
 from tqdm import tqdm
 
-from . import utils
+import utils
 
 logger = utils.create_logger(__file__)
 
