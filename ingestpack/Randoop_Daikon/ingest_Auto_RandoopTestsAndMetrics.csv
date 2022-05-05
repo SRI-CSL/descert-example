@@ -1,3 +1,0 @@
-numberOfErrorRevealingTestCases,numberOfReducedViolationInducingTestCases,numberOfRegressionTestCases,numberOfViolationInducingTestCases,totalNumberOfTestCases,description,generatedAtTime,identifier,title,jUnitTestFile_identifier,producedBy_identifier,verifies_identifier,definedIn_identifier,dataInsertedBy_identifier,wasAttributedTo_identifier,wasDerivedFrom_identifier,wasGeneratedBy_identifier,wasImpactedBy_identifier,asRevisionOf_identifier
-0,0,320,0,320,Randoop version 4.2.3 metrics,,Randoop_4_2_3_METRICS,Randoop version 4.2.3 metrics data,FILE_REGRESSION_TEST0,,,,,,,Randoop_4_2_3,,
-0,0,320,0,320,Randoop version 4.2.3 metrics,,Randoop_4_2_3_METRICS,Randoop version 4.2.3 metrics data,FILE_REGRESSION_TEST_DRIVER,,,,,,,Randoop_4_2_3,,

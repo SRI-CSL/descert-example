@@ -1,3 +1,0 @@
-toolInstallationConfiguration,toolSummaryDescription,toolVersion,description,identifier,title,toolQualificationData_identifier,userGuide_identifier,definedIn_identifier,actedOnBehalfOf_identifier,dataInsertedBy_identifier
-,Automatic unit test generation for Java,4.2.3,Automatic unit test generation for Java,Randoop_4_2_3,Randoop version 4.2.3,,DOCUMENT_RANDOOP_4_2_3,,,
-,Dynamic detection of likely program invariants,5.8.8,Dynamic detection of likely program invariants,Daikon_5_8_8,Daikon version 5.8.8,,DOCUMENT_DAIKON_5_8_8,,,

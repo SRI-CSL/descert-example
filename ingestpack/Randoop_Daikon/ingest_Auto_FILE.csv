@@ -1,7 +1,0 @@
-filename,description,generatedAtTime,identifier,invalidatedAtTime,title,createBy_identifier,definedIn_identifier,fileFormat_identifier,fileHash_identifier,satisfies_identifier,dataInsertedBy_identifier,wasAttributedTo_identifier,wasDerivedFrom_identifier,wasGeneratedBy_identifier,wasImpactedBy_identifier,wasRevisionOf_identifier
-RegressionTest0.java,JUnit tests,2021-06-18T03:03:16-07:00,FILE_REGRESSION_TEST0,,Regression Test0,,,FORMAT_JAVA,,,,,,,,
-RegressionTestDriver.java,JUnit tests,2021-06-18T03:03:16-07:00,FILE_REGRESSION_TEST_DRIVER,,Regression Test Driver,,,FORMAT_JAVA,,,,,,,,
-randoop_4_2_3_usermanual.pdf,Randoop Manual 4.2.3,2021-06-18T03:03:16-07:00,FILE_RANDOOP_4_2_3,,Randoop Manual 4.2.3,,,FORMAT_PDF,,,,,,,,
-daikon_5_8_8_usermanual.pdf,Daikon Manual 5.8.8,2021-06-18T03:03:16-07:00,FILE_DAIKON_5_8_8,,Daikon Manual 5.8.8,,,FORMAT_PDF,,,,,,,,
-RegressionTestDriver.inv.txt,Set of likely program invariant specifications,2021-06-18T03:03:16-07:00,FILE_REGRESSION_TEST_DRIVER,,Regression Test Driver,,,FORMAT_TXT,,,,,,,,
-RegressionTestDriver.decls-DynComp,DynComp analysis file,2021-06-18T03:03:16-07:00,FILE_REGRESSION_TEST_DRIVER.DECLS-_DYN_COMP,,Regression Test Driver.decls- Dyn Comp,,,FORMAT_DynComp,,,,,,,,

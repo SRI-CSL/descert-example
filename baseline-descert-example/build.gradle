@@ -1,0 +1,82 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+	id 'com.sri.gradle.daikon' version '0.0.2-SNAPSHOT'
+	id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
+	id "com.jetbrains.python.envs" version "0.0.30"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://plugins.gradle.org/m2/'
+    }
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:28.0-jre'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'junit:junit:4.13'
+}
+
+tasks.withType(Javadoc){
+	enabled = false
+}
+
+
+runRandoop {
+    randoopJar = file("libs/randoop.jar")
+    junitOutputDir = file("${projectDir}/src/test/java")
+    timeoutSeconds = 30
+    stopOnErrorTest = false
+    flakyTestBehavior = 'output'
+    noErrorRevealingTests = false
+    junitReflectionAllowed = false
+    usethreads = true
+    outputLimit = 2000
+    junitPackageName = 'com.foo'
+}
+
+runDaikon {
+    requires = file("libs")
+    outputDir = file("${projectDir}/build/daikon-output")
+    testDriverPackage = "com.foo"
+}
+
+/*
+RACK-DesCert tasks:
+
+1. Creates/configures a conda environment
+2. Installs RACK-cli and its dependencies within new environment
+3. Inits RACK (a RACK instance should be running)
+4. Ingest new data
+*/
+
+/*Create our conda*/
+envs {
+    bootstrapDirectory = new File(buildDir, 'bootstrap')
+    envsDirectory = new File(buildDir, 'envs')
+	
+	conda "Miniconda3", "Miniconda3-latest", "64"
+	condaenv "descert", "3.8.5", "Miniconda3", ["numpy"]
+}
+
+task setupRackCli(type: Exec) {
+    dependsOn 'build_envs'
+	executable "./rack-descert.sh"
+	args "cli", "--conda=Miniconda3", "--condaenv=descert"
+}
+
+task setupRackArcos(type: Exec) {
+	dependsOn 'setupRackCli'
+	executable "./rack-descert.sh"
+	args "init", "--conda=Miniconda3", "--condaenv=descert"
+}
+
+
+task importData(type: Exec) {
+	executable "./rack-descert.sh"
+	args "import", "--conda=Miniconda3", "--condaenv=descert"
+}
+

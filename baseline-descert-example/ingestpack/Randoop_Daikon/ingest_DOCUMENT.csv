@@ -1,0 +1,3 @@
+dateOfIssue,versionNumber,description,generatedAtTime,identifier,invalidatedAtTime,title,approvalAuthority_identifier,issuingOrganization_identifier,references_identifier,status_identifier,definedIn_identifier,content_identifier,dataInsertedBy_identifier,wasAttributedTo_identifier,wasDerivedFrom_identifier,wasGeneratedBy_identifier,wasImpactedBy_identifier,wasRevisionOf_identifier
+2021-06-19,4.2.3,Randoop Manual,2021-06-18T03:03:16-07:00,DOCUMENT_RANDOOP_4_2_3,,Randoop Manual 4.2.3,ORG_UW,ORG_UW,,,,FILE_RANDOOP_4_2_3,,,,,,
+2021-06-19,5.8.8,Daikon Manual,2021-06-18T03:03:16-07:00,DOCUMENT_DAIKON_5_8_8,,Daikon Manual 5.8.8,ORG_UW,ORG_UW,,,,FILE_DAIKON_5_8_8,,,,,,
