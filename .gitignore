@@ -200,3 +200,5 @@ sorts*/
 result*/
 *.idea/
 libs
+.dst.d/
+.dst.d/*
