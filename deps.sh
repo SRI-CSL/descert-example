@@ -7,8 +7,12 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 pushd ${DIR} &>/dev/null
 
-# Downloads resources needed by the project
+if [ -d .dst.d ]; then
+	echo Deleting dot descert dir 
+	rm -rf .dst.d
+fi
 
+# Downloads resources needed by the project
 mkdir -p .dst.d
 pushd .dst.d &>/dev/null
 
@@ -25,6 +29,11 @@ git clone https://gist.github.com/999912a59e25095929ab103e3da851dd.git data
 # 2. Download the needed tool jars for this project
 
 # Libs (dependencies)
+
+if [ -d libs ]; then
+	rm -rf libs
+fi
+
 mkdir -p libs
 pushd libs &>/dev/null
 
@@ -40,24 +49,32 @@ for jar in "${JARS[@]}"; do
 	base=$(basename ${jar})
 	echo Fetching ${base}
 
-	if curl -fLo ${base} ${jar} &>/dev/null; then
-		if grep -q "randoop" "$base"; then
-			mv ${base} "randoop.jar"
-		elif grep -q "replacecall" "$base"; then
-			mv ${base} "replacecall.jar"
-		else
-			:
-		fi
+	if curl -fLo ${base} ${jar} &> /dev/null; then
+		:
 	else
 		echo Fetching ${base} failed.
-		exit 1
+		exit 1;
+	fi
+done
+
+for jar in "${JARS[@]}"; do
+	base=$(basename ${jar})
+	echo Renaming ${base}
+
+	if [[ ${base} = "randoop-all"* ]]; then
+	# if grep -q "randoop-all" "$base"; then
+		echo Renaming ${base}
+		mv ${base} "randoop.jar"
+	# elif grep -q "replacecall" "$base"; then
+	elif [[ ${base} = "replacecall-"* ]]; then
+		mv ${base} "replacecall.jar"
 	fi
 done
 
 popd &>/dev/null # Exit libs
 
 # extract the default replacements file
-jar -xf replacecall.jar default-replacements.txt
+# jar -xf replacecall.jar default-replacements.txt
 
 # 3. Install do-like-javac
 
@@ -74,41 +91,44 @@ if [[ -z "${DLJCDIR}" ]]; then
 	# tool called `csve`, which turns Randoop and Daikon
 	# evidence data (in JSON format) into a set of csv
 	# files matching Honeywell's ontology
+	pushd do-like-javac &>/dev/null
 	git checkout descert-evidence-data
+	popd &>/dev/null # Exit do-like-javac
 fi
 
-# Fetch Daikon
-if [[ -z "${DAIKONDIR}" ]]; then
-	DAIKONBASEURL="http://plse.cs.washington.edu/daikon"
-	DAIKONVERSION=`curl --fail -s $DAIKONBASEURL/download/doc/VERSION | xargs echo -n`
-	DAIKON_SRC=$DAIKONBASEURL/download/daikon-$DAIKONVERSION.tar.gz
-	DAIKON_SRC_FILE=$(basename ${DAIKON_SRC})
-	DAIKON_PARENT_DIR=`dirname ${DAIKON_SRC_FILE}`
 
-	if [ ! -e $DAIKON_SRC_FILE ]; then
-		rm -rf daikon-src
-		if curl -fLo $DAIKON_SRC_FILE $DAIKON_SRC; then
-			echo JAVA_HOME: ${JAVA_HOME:?"Building Daikon requires the JAVA_HOME environment variable to be set."}
-			pushd $DAIKON_PARENT_DIR
-				DAIKON_SRC_DIR=`tar -tzf ${DAIKON_TARBALL} | head -1 | cut -f1 -d"/"`
-				mv $DAIKON_SRC_DIR daikon-src
-				tar xzf $DAIKON_TARBALL
-				pushd daikon-src
-					make dyncomp-jdk
-				popd
-			popd
-			cp daikon-src/daikon.jar ../libs/daikon.jar
-			cp daikon-src/java/ChicoryPremain.jar ../libs/ChicoryPremain.jar
-			cp daikon-src/java/dcomp_premain.jar ../libs/dcomp_premain.jar
-			cp daikon-src/java/dcomp_rt.jar ../libs/dcomp_rt.jar
-		else
-			echo "Fetching $DAIKON_SRC failed."
-			exit 1;
-		fi
-	else
-		echo "Daikon already up to date."
-	fi
-fi
+# # Fetch Daikon
+# if [[ -z "${DAIKONDIR}" ]]; then
+# 	DAIKONBASEURL="http://plse.cs.washington.edu/daikon"
+# 	DAIKONVERSION=`curl --fail -s $DAIKONBASEURL/download/doc/VERSION | xargs echo -n`
+# 	DAIKON_SRC=$DAIKONBASEURL/download/daikon-$DAIKONVERSION.tar.gz
+# 	DAIKON_SRC_FILE=$(basename ${DAIKON_SRC})
+# 	DAIKON_PARENT_DIR=`dirname ${DAIKON_SRC_FILE}`
+
+# 	if [ ! -e $DAIKON_SRC_FILE ]; then
+# 		rm -rf daikon-src
+# 		if curl -fLo $DAIKON_SRC_FILE $DAIKON_SRC; then
+# 			echo JAVA_HOME: ${JAVA_HOME:?"Building Daikon requires the JAVA_HOME environment variable to be set."}
+# 			pushd $DAIKON_PARENT_DIR
+# 				DAIKON_SRC_DIR=`tar -tzf ${DAIKON_TARBALL} | head -1 | cut -f1 -d"/"`
+# 				mv $DAIKON_SRC_DIR daikon-src
+# 				tar xzf $DAIKON_TARBALL
+# 				pushd daikon-src
+# 					make dyncomp-jdk
+# 				popd
+# 			popd
+# 			cp daikon-src/daikon.jar ../libs/daikon.jar
+# 			cp daikon-src/java/ChicoryPremain.jar ../libs/ChicoryPremain.jar
+# 			cp daikon-src/java/dcomp_premain.jar ../libs/dcomp_premain.jar
+# 			cp daikon-src/java/dcomp_rt.jar ../libs/dcomp_rt.jar
+# 		else
+# 			echo "Fetching $DAIKON_SRC failed."
+# 			exit 1;
+# 		fi
+# 	else
+# 		echo "Daikon already up to date."
+# 	fi
+# fi
 
 popd &>/dev/null # Exit tools
 
