@@ -10,7 +10,6 @@ import sys
 import timeit
 import traceback
 from contextlib import contextmanager
-from enum import Enum
 from threading import Timer
 
 import utils

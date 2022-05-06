@@ -1,23 +1,8 @@
-import heapq
-import inspect
 import logging
 import os
-import random
-import sys
-import time
-import warnings
-from enum import Enum
-from functools import wraps
 from logging.handlers import RotatingFileHandler
-from time import sleep
-
-import numpy as np
-# # Snowball stemmers could be used as a dependency
-# from nltk.stem import SnowballStemmer
-from six import string_types
 
 
-# @keep
 def create_logger(file, backup_count=100):
     wd = os.path.dirname(os.path.realpath(__file__))
     ld = os.path.join(wd, "logs")
