@@ -97,38 +97,39 @@ if [[ -z "${DLJCDIR}" ]]; then
 fi
 
 
-# # Fetch Daikon
-# if [[ -z "${DAIKONDIR}" ]]; then
-# 	DAIKONBASEURL="http://plse.cs.washington.edu/daikon"
-# 	DAIKONVERSION=`curl --fail -s $DAIKONBASEURL/download/doc/VERSION | xargs echo -n`
-# 	DAIKON_SRC=$DAIKONBASEURL/download/daikon-$DAIKONVERSION.tar.gz
-# 	DAIKON_SRC_FILE=$(basename ${DAIKON_SRC})
-# 	DAIKON_PARENT_DIR=`dirname ${DAIKON_SRC_FILE}`
+# Fetch Daikon
+if [[ -z "${DAIKONDIR}" ]]; then
+	DAIKONBASEURL="http://plse.cs.washington.edu/daikon"
+	DAIKONVERSION=`curl --fail -s $DAIKONBASEURL/download/doc/VERSION | xargs echo -n`
+	DAIKON_SRC=$DAIKONBASEURL/download/daikon-$DAIKONVERSION.tar.gz
+	DAIKON_SRC_FILE=$(basename ${DAIKON_SRC})
 
-# 	if [ ! -e $DAIKON_SRC_FILE ]; then
-# 		rm -rf daikon-src
-# 		if curl -fLo $DAIKON_SRC_FILE $DAIKON_SRC; then
-# 			echo JAVA_HOME: ${JAVA_HOME:?"Building Daikon requires the JAVA_HOME environment variable to be set."}
-# 			pushd $DAIKON_PARENT_DIR
-# 				DAIKON_SRC_DIR=`tar -tzf ${DAIKON_TARBALL} | head -1 | cut -f1 -d"/"`
-# 				mv $DAIKON_SRC_DIR daikon-src
-# 				tar xzf $DAIKON_TARBALL
-# 				pushd daikon-src
-# 					make dyncomp-jdk
-# 				popd
-# 			popd
-# 			cp daikon-src/daikon.jar ../libs/daikon.jar
-# 			cp daikon-src/java/ChicoryPremain.jar ../libs/ChicoryPremain.jar
-# 			cp daikon-src/java/dcomp_premain.jar ../libs/dcomp_premain.jar
-# 			cp daikon-src/java/dcomp_rt.jar ../libs/dcomp_rt.jar
-# 		else
-# 			echo "Fetching $DAIKON_SRC failed."
-# 			exit 1;
-# 		fi
-# 	else
-# 		echo "Daikon already up to date."
-# 	fi
-# fi
+	if [ ! -e $DAIKON_SRC_FILE ]; then
+		if [ -d daikon-src ]; then
+			rm -rf daikon-src
+		fi
+
+		if curl -fLo $DAIKON_SRC_FILE $DAIKON_SRC; then
+			echo JAVA_HOME: ${JAVA_HOME:?"Building Daikon requires the JAVA_HOME environment variable to be set."}
+			DAIKON_TARBALL=`pwd`/$DAIKON_SRC_FILE
+			DAIKON_SRC_DIR=`tar -tzf ${DAIKON_TARBALL} | head -1 | cut -f1 -d"/"`
+			tar xzf $DAIKON_TARBALL
+			mv $DAIKON_SRC_DIR daikon-src
+			pushd daikon-src &>/dev/null
+				make dyncomp-jdk
+			popd &>/dev/null # exit daikon-src
+			cp daikon-src/daikon.jar ../libs/daikon.jar
+			cp daikon-src/java/ChicoryPremain.jar ../libs/ChicoryPremain.jar
+			cp daikon-src/java/dcomp_premain.jar ../libs/dcomp_premain.jar
+			cp daikon-src/java/dcomp_rt.jar ../libs/dcomp_rt.jar
+		else
+			echo "Fetching $DAIKON_SRC failed."
+			exit 1;
+		fi
+	else
+		echo "Daikon already up to date."
+	fi
+fi
 
 popd &>/dev/null # Exit tools
 
