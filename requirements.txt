@@ -3,3 +3,4 @@ click
 pathlib
 typing
 autopep8
+dataclass_csv
