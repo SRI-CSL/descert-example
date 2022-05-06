@@ -6,7 +6,6 @@ import logging
 import os
 import shutil
 import subprocess
-import sys
 import timeit
 import traceback
 from contextlib import contextmanager
