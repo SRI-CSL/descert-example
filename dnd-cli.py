@@ -151,11 +151,31 @@ def git_repos_in_corpus(repos: cl.Repos, corpus_json_file: str, rs,
     return results
 
 
+def build_sample_app(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> None:
+    jar_command = [
+        "jar", "-xf",
+        '../log4j-spring-cloud-config/log4j-spring-cloud-config-samples/log4j-spring-cloud-config-sample-application/target/sampleapp.jar'
+    ]
+    success = False
+    stats = None
+    for each_cloned in cloned_projects:
+        if each_cloned.project == 'log4j':
+            sample_dir = os.path.join(each_cloned.project_dir, 'sample')
+            sample_dir = common.mkdir(sample_dir)
+            with common.cd(sample_dir):
+                stats = common.run_cmd(jar_command)
+
+    success = stats and stats["return_code"] == 0
+    return success
+
+
 def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> dict:
     cloned_projects = cloned_projects or []
 
     out_dict = {}
     for each_cloned in cloned_projects:
+        if each_cloned.project == 'log4j':
+            os.environ['LOG4JDIR'] = os.path.join(each_cloned.project_dir)
         stats = common.run_dljc(
             each_cloned.project,
             # the `csve` tool gets the *-evidence.json generated
@@ -193,9 +213,10 @@ def fetch_deps_cmd(repos):
     default=["all"],
     help="Named set of repositories to clone/build",
 )
-@click.option("--build/--no-build",
-              default=False,
-              help="Build cloned repositories")
+@click.option(
+    "--build/--no-build",
+    default=False,
+    help="Build cloned repositories")
 @cl.pass_repos
 def fetch_repos_cmd(repos, rs, build):
     corpus_json_file = os.path.join(common.DATA_DIR, 'corpus.json')
@@ -215,8 +236,12 @@ def fetch_repos_cmd(repos, rs, build):
 
 
 @cl.cli.command("produce-evidence", help="Generate DesCert evidence data")
+@click.option(
+  "--build-sample/--no-build-sample",
+  default=False,
+  help="Build a sample.jar for Randoop")
 @cl.pass_repos
-def run_descert_cmd(repos):
+def run_descert_cmd(repos, build_sample):
     # make sure we look in the right directories
     repos.outdir = common.set_output_dir(repos.subdir("outdir"))
     repos.homedir = common.set_corpus_dir(repos.subdir("srcdir"))
@@ -226,10 +251,21 @@ def run_descert_cmd(repos):
         click.echo(f"Failed to retrieve repos from {repos.homedir}.")
         return
 
+    if build_sample:
+        # Mike's comment (May 4th, 2022):
+        # The purpose is to create file sampleapp.jar, which is used below.
+        # This command consistently crashes one machine running Rocky Linux,
+        # but it worked on another.
+        # On an Ubuntu machine, I had to comment out test testMessageThrowsAndNullFormat
+        # in file AbstractLoggerTest.java .
+        success = build_sample_app(repos, repos_info_out)
+        if not success:
+          click.echo("Failed to create the sample.jar.")
+          return
+
     dljc_out = run_descert(repos, repos_info_out)
     if not dljc_out or dljc_out is None:
-        click.echo(
-            "Failed to run DesCert. Please check log for additional info.")
+        click.echo("Failed to run DesCert. Check log for additional info.")
         return
 
 

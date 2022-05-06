@@ -10,6 +10,7 @@ from utils import create_logger
 logger = create_logger(__file__)
 
 
+# TODO(has) - replace this with common.run_cmd
 def run_cmd(cmd, stdout=logger.info, stderr=logger.error):
     stats = {"output": ""}
 

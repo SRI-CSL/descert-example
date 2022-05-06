@@ -279,6 +279,7 @@ def copytree(src, dst):
 def mkdir(newdir):
     if not os.path.isdir(newdir):
         os.makedirs(newdir)
+    return newdir
 
 
 def rmdir(dir_path):
@@ -373,8 +374,7 @@ def run_dljc(project_name, tools=None, options=None, overrides=None):
     # If tools is non-empty but remaining_tools is empty, then we don't
     # need to do anything
     if tools and not remaining_tools:
-        logger.info("Skipping %s on %s", ", ".join(skipped_tools),
-                    project_name)
+        logger.info("Skipping %s on %s", ", ".join(skipped_tools), project_name)
         return dljc_result
     # ssss
     if tools:
@@ -386,28 +386,28 @@ def run_dljc(project_name, tools=None, options=None, overrides=None):
                 ", ".join(skipped_tools),
             )
         else:
-            logger.info("Running %s on %s", ", ".join(remaining_tools),
-                        project_name)
+            logger.info("Running %s on %s", ", ".join(remaining_tools), project_name)
     # added to handle non .git repositories
     project_dir = get_corpus_project_dir(
-        project_name) if project else get_or_else(overrides, "project_dir",
-                                                  None)
+        project_name) if project else get_or_else(overrides, "project_dir", None)
 
     if not project_dir:
         logger.warning("Project directory cannot be found")
         return dljc_result
 
-    dljc_output = os.path.join(get_corpus_project_dir(project_name),
-                               DLJC_OUTPUT_DIR)
-    os.environ['DAIKONDIR'] = os.path.join(LIBS_DIR, 'daikon-src')
+    dljc_output = os.path.join(get_corpus_project_dir(project_name), DLJC_OUTPUT_DIR)
+    os.environ['DAIKONDIR'] = os.path.join(LIBS_DIR)
     logger.info("Found %s project dir", project_dir)
 
     with cd(project_dir):
         # for non .git repositories, the project variable
         # may be None. Consequently, no build is necessary.
-        build_command = project["build"].strip().split() if project else [
-            "mvn", "-v"
-        ]
+        build_command = []
+        if project:
+            build_command.extend(project["build"].strip().split())
+        else:
+           build_command.extend(["mvn", "-v"])
+
         dljc_command = [DLJC_BINARY]
         if project:
             dljc_command.extend([
