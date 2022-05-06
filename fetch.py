@@ -76,8 +76,7 @@ def git_update(project):
             project["name"],
         )
         return
-    if project["git-ref"] not in run_cmd(["git", "rev-parse",
-                                          "HEAD"])["output"]:
+    if ("git-ref" in project and project["git-ref"] not in run_cmd(["git", "rev-parse", "HEAD"])["output"]):
         logger.info("Checking out git ref '%s'.", project["git-ref"])
         run_git("fetch")
         run_git("reset", ["--hard"])
