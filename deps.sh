@@ -71,10 +71,10 @@ for jar in "${JARS[@]}"; do
 	fi
 done
 
-popd &>/dev/null # Exit libs
-
 # extract the default replacements file
-# jar -xf replacecall.jar default-replacements.txt
+jar -xf replacecall.jar default-replacements.txt
+
+popd &>/dev/null # Exit libs
 
 # 3. Install do-like-javac
 
