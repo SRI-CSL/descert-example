@@ -202,3 +202,5 @@ result*/
 libs
 .dst.d/
 .dst.d/*
+
+.vscode/

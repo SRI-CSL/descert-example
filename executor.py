@@ -19,10 +19,12 @@ def noop(results):
     return results
 
 
-def partition(items: ty.Iterable[OutputType], chunk_size: ty.Optional[int]) -> ty.Iterable[ty.List[OutputType]]:
+def partition(
+        items: ty.Iterable[OutputType],
+        chunk_size: ty.Optional[int]) -> ty.Iterable[ty.List[OutputType]]:
 
     positive_int = isinstance(chunk_size, int) and chunk_size > 0
-    if not(chunk_size is None or positive_int):
+    if not (chunk_size is None or positive_int):
         raise ValueError("Chunk size must be a positive int (or None)")
 
     iterator = iter(items)
@@ -30,10 +32,11 @@ def partition(items: ty.Iterable[OutputType], chunk_size: ty.Optional[int]) -> t
     while part:
         yield part
         part = list(itertools.islice(iterator, chunk_size))
-        
+
 
 class ExecutorProcessingError(Exception):
-    def __init__(self, description: str, results: ty.List[ty.Any], exceptions: ty.List[Exception]):
+    def __init__(self, description: str, results: ty.List[ty.Any],
+                 exceptions: ty.List[Exception]):
         self.description = description
         self.results = results
         self.exceptions = exceptions
@@ -48,7 +51,7 @@ class ExecutorProcessingError(Exception):
 class Task:
     def __init__(self):
         pass
-    
+
 
 def paused(start=3, stop=60, fixed=False):
     # TODO(has) make this more general. right now it
@@ -92,7 +95,10 @@ def _execute_in_parallel(tasks: ty.List[Task],
     with ThreadPool() as worker_pool:
         try:
             with tqdm(total=total_tasks, desc=desc) as pbar:
-                for result in worker_pool.imap(work_fn, tasks, ):
+                for result in worker_pool.imap(
+                        work_fn,
+                        tasks,
+                ):
                     results += [result]
                     pbar.update()
         except BrokenProcessPool as e:
@@ -106,9 +112,7 @@ def _execute_in_parallel(tasks: ty.List[Task],
 
         if exceptions:
             raise ExecutorProcessingError(
-                "ThreadPool finished with exceptions",
-                results,
-                exceptions)
+                "ThreadPool finished with exceptions", results, exceptions)
     return transf_fn(results)
 
 
@@ -132,15 +136,18 @@ def execute_batch_parallel(tasks: ty.List[Task],
     results = []
     try:
         for i, batch in enumerate(partition(tasks, batch_size)):
-            result = _execute_in_parallel(batch, work_fn, desc=f"{desc}-batch-{i}")
+            result = _execute_in_parallel(batch,
+                                          work_fn,
+                                          desc=f"{desc}-batch-{i}")
             if result:
                 results.extend(result)
     except ExecutorProcessingError as e:
-        sys.stderr.write(f"batch-processor terminated with an error: {e.description}\n")
+        sys.stderr.write(
+            f"batch-processor terminated with an error: {e.description}\n")
         results.extend(e.results)
 
     return transf_fn(results)
 
 
 if __name__ == "__main__":
-  pass
+    pass
