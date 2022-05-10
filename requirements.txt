@@ -4,3 +4,6 @@ pathlib
 typing
 autopep8
 dataclass_csv
+black
+isort
+flake8

@@ -169,13 +169,23 @@ def build_sample_app(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> Non
     return success
 
 
-def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> dict:
+def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo], tools: ty.List[str], opts: ty.List[str]) -> dict:
     cloned_projects = cloned_projects or []
+    opts = [o for o in opts] or None
+    
+    if not tools or len(tools) == 0:
+      raise ValueError("Missing tools to execute!")
+
+    if "all" in tools:
+      tools = ['randoop', 'chicory', 'csve']
+    else:
+      tools = [t for t in tools]
 
     out_dict = {}
     for each_cloned in cloned_projects:
         if each_cloned.project == 'log4j':
             os.environ['LOG4JDIR'] = os.path.join(each_cloned.project_dir)
+        
         stats = common.run_dljc(
             each_cloned.project,
             # the `csve` tool gets the *-evidence.json generated
@@ -183,9 +193,15 @@ def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> dict:
             # them into a collection of csv files. These
             # csv files match Honeywell's ontology and can be ingested
             # by rack-in-the-box
-            tools=['randoop', 'chicory', 'csve'],
-            options=['--daikon-xml', '--evidence-json'])
-        if stats or len(stats) > 0:
+            # tools=['randoop'],
+            # tools=['chicory'],
+            # tools=['randoop', 'chicory', 'csve'],
+            tools=tools,
+            # options=['--daikon-xml', '--evidence-json'])
+            # options=['--daikon-xml'])
+            # options=['--evidence-json'])
+            options=opts)
+        if stats or stats is not None or len(stats) > 0:
             out_dict[each_cloned.project] = stats
 
     return out_dict
@@ -237,33 +253,46 @@ def fetch_repos_cmd(repos, rs, build):
 
 @cl.cli.command("produce-evidence", help="Generate DesCert evidence data")
 @click.option(
-  "--build-sample/--no-build-sample",
-  default=False,
-  help="Build a sample.jar for Randoop")
+    "--tool",
+    "tools",
+    multiple=True,
+    default=["all"],
+    help="List of tools to execute",
+)
+@click.option(
+  "--options",
+  "opts",
+  multiple=True,
+  default=None,
+  help="List of tool options")
 @cl.pass_repos
-def run_descert_cmd(repos, build_sample):
+def run_descert_cmd(repos, tools, opts):
     # make sure we look in the right directories
     repos.outdir = common.set_output_dir(repos.subdir("outdir"))
     repos.homedir = common.set_corpus_dir(repos.subdir("srcdir"))
+    
+    corpus_json_file = os.path.join(common.DATA_DIR, 'corpus.json')
+    common.set_corpus_file(corpus_json_file)
 
     repos_info_out = get_cloned_repos(repos)
     if not repos_info_out or repos_info_out is None:
         click.echo(f"Failed to retrieve repos from {repos.homedir}.")
         return
 
-    if build_sample:
-        # Mike's comment (May 4th, 2022):
-        # The purpose is to create file sampleapp.jar, which is used below.
-        # This command consistently crashes one machine running Rocky Linux,
-        # but it worked on another.
-        # On an Ubuntu machine, I had to comment out test testMessageThrowsAndNullFormat
-        # in file AbstractLoggerTest.java .
-        success = build_sample_app(repos, repos_info_out)
-        if not success:
-          click.echo("Failed to create the sample.jar.")
-          return
+    # if build_sample:
+    #     # Mike's comment (May 4th, 2022):
+    #     # The purpose is to create file sampleapp.jar, which is used below.
+    #     # This command consistently crashes one machine running Rocky Linux,
+    #     # but it worked on another.
+    #     # On an Ubuntu machine, I had to comment out test testMessageThrowsAndNullFormat
+    #     # in file AbstractLoggerTest.java .
+    #     success = build_sample_app(repos, repos_info_out)
+    #     if not success:
+    #       click.echo("Failed to create the sample.jar.")
+    #       return
+    #     return # JUST TO TEST the creation of this sample app
 
-    dljc_out = run_descert(repos, repos_info_out)
+    dljc_out = run_descert(repos, repos_info_out, tools, opts)
     if not dljc_out or dljc_out is None:
         click.echo("Failed to run DesCert. Check log for additional info.")
         return
