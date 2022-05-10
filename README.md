@@ -57,7 +57,7 @@ Once these dependencies and tools are installed, you can run the following
 command to see what you can :
 
 ```sh
-› python dnd-cli.py produce-evidence --tool randoop --tool csve --options "--evidence-json"
+› python dnd-cli.py produce-evidence --tool randoop --tool csve --addon "--evidence-json"
 ```
 
 The above command will execute Randoop, store its output in a JSON file. Then this JSON
@@ -80,4 +80,21 @@ Commands:
   fetch-deps        Download needed dependencies
   fetch-repos       Download needed repositories
   produce-evidence  Generate DesCert evidence data
+```
+
+Or even see what you can do with specific commands, simply by 
+using the `--help` option; e.g.,
+
+```sh
+› python dnd-cli.py produce-evidence --help
+Usage: dnd-cli.py produce-evidence [OPTIONS]
+
+  Generate DesCert evidence data
+
+Options:
+  --tool [randoop|chicory|csve|all]
+                                  List of tools to execute
+  --addon [--daikon-xml|--evidence-json|--error-driver|--override-evidence]
+                                  Addons to forward to do-like-javac tools
+  --help                          Show this message and exit.
 ```

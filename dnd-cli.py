@@ -171,21 +171,23 @@ def build_sample_app(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> Non
 
 def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo], tools: ty.List[str], opts: ty.List[str]) -> dict:
     cloned_projects = cloned_projects or []
-    opts = [o for o in opts] or None
     
     if not tools or len(tools) == 0:
-      raise ValueError("Missing tools to execute!")
-
+        raise ValueError("Missing tools to execute!")
+  
     if "all" in tools:
-      tools = ['randoop', 'chicory', 'csve']
+        tools = ['randoop', 'chicory', 'csve']
+        # if all, use all options
+        opts = ['--daikon-xml', '--evidence-json']
     else:
-      tools = [t for t in tools]
+        tools = list(tools) if tools else []
+        if opts:
+            opts = list(opts)
 
     out_dict = {}
     for each_cloned in cloned_projects:
-        if each_cloned.project == 'log4j':
-            os.environ['LOG4JDIR'] = os.path.join(each_cloned.project_dir)
-        
+        # if each_cloned.project == 'log4j':
+        #     os.environ['LOG4JDIR'] = os.path.join(each_cloned.project_dir)
         stats = common.run_dljc(
             each_cloned.project,
             # the `csve` tool gets the *-evidence.json generated
@@ -256,15 +258,18 @@ def fetch_repos_cmd(repos, rs, build):
     "--tool",
     "tools",
     multiple=True,
+    type=click.Choice(['randoop', 'chicory', 'csve', 'all']),
     default=["all"],
     help="List of tools to execute",
 )
 @click.option(
-  "--options",
-  "opts",
-  multiple=True,
-  default=None,
-  help="List of tool options")
+    "--addon",
+    "opts",
+    multiple=True,
+    type=click.Choice(['--daikon-xml', '--evidence-json', '--error-driver', '--override-evidence']),
+    default=None,
+    help="Addons to forward to do-like-javac tools",
+)
 @cl.pass_repos
 def run_descert_cmd(repos, tools, opts):
     # make sure we look in the right directories
