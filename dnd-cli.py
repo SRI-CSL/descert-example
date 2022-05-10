@@ -253,7 +253,7 @@ def fetch_repos_cmd(repos, rs, build):
     ]))
 
 
-@cl.cli.command("produce-evidence", help="Generate DesCert evidence data")
+@cl.cli.command("get-evidence", help="Generate DesCert evidence data")
 @click.option(
     "--tool",
     "tools",

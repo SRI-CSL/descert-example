@@ -25,14 +25,14 @@ Usage
 ============
 
 You can start dljc by cloning the `descert-example` repository using
-the following command and then checking out the branch `decert-with-dljc`.
+the following command and then checking out the branch `descert-with-dljc`.
 
 From your terminal,
 
 ```sh
 › git clone https://github.com/SRI-CSL/descert-example.git
 › cd descert-example
-› git switch decert-with-dljc
+› git switch descert-with-dljc
 ```
 
 Then, you install the required dependencies listed in
@@ -57,7 +57,7 @@ Once these dependencies and tools are installed, you can run the following
 command to see what you can :
 
 ```sh
-› python dnd-cli.py produce-evidence --tool randoop --tool csve --addon "--evidence-json"
+› python dnd-cli.py get-evidence --tool randoop --tool csve --addon "--evidence-json"
 ```
 
 The above command will execute Randoop, store its output in a JSON file. Then this JSON
@@ -79,15 +79,15 @@ Options:
 Commands:
   fetch-deps        Download needed dependencies
   fetch-repos       Download needed repositories
-  produce-evidence  Generate DesCert evidence data
+  get-evidence  Generate DesCert evidence data
 ```
 
 Or even see what you can do with specific commands, simply by 
 using the `--help` option; e.g.,
 
 ```sh
-› python dnd-cli.py produce-evidence --help
-Usage: dnd-cli.py produce-evidence [OPTIONS]
+› python dnd-cli.py get-evidence --help
+Usage: dnd-cli.py get-evidence [OPTIONS]
 
   Generate DesCert evidence data
 
