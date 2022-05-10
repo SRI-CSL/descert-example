@@ -254,7 +254,7 @@ def get_corpus_project_dir(project_name, info=None):
         return os.path.join(CORPUS_DIR, project["name"], project["build-dir"])
     return os.path.join(CORPUS_DIR, project["name"])
 
-# TODO(has) this will replace get_corpus_project_dir
+# TODO(has) - show we replace get_corpus_project_dir with this method?
 def get_corpus_project_dirs(project_name, info=None):
     project_info = get_project_info(project_name) if info is None else info
     
@@ -409,94 +409,43 @@ def run_dljc(project_name, tools=None, options=None, overrides=None):
         else:
             logger.info("Running %s on %s", ", ".join(remaining_tools), project_name)
     # added to handle non .git repositories
-    #########BEGIN
-    project_dirs = []
     if project:
-        project_dirs.extend(get_corpus_project_dirs(project_name))
+        project_dir = get_corpus_project_dir(project_name)
     else:
-        project_dirs.extend([get_or_else(overrides, "project_dir", None)])
+        project_dir = get_or_else(overrides, "project_dir", None)
 
-    for each_project_dir in project_dirs:
-        if not each_project_dir:
-            logger.warning("Project directory cannot be found")
-            return dljc_result
-        
-        dljc_output = os.path.join(os.path.join(CORPUS_DIR, project_name), each_project_dir, DLJC_OUTPUT_DIR)
-        os.environ['DAIKONDIR'] = os.path.join(LIBS_DIR)
-        logger.info("Building %s in %s project", each_project_dir, project_name)
-        
-        with cd(each_project_dir):
-            # for non .git repositories, the project variable
-            # may be None. Consequently, no build is necessary.
-            build_command = []
-            if project:
-                build_command.extend(project["build"].strip().split())
-            else:
-                build_command.extend(["mvn", "-v"])
-            
-            dljc_command = [DLJC_BINARY]
-            if project:
-                dljc_command.extend(["-o", dljc_output, '-l', LIBS_DIR, "--timeout", str(timelimit)])
-            else:
-                dljc_command.extend(["--timeout", str(timelimit)])
-            
-            if remaining_tools:
-                dljc_command.extend(["-t", ",".join(remaining_tools)])
-            dljc_command.extend(options)
-            
-            if extra_opts:
-                dljc_command.extend(extra_opts.split())
-            
-            dljc_command.append("--")
-            dljc_command.extend(build_command)
-            single_dljc_result = run_cmd(dljc_command, "dljc")
-            
-            dljc_result["output"] = dljc_result.get("output", '') + single_dljc_result["output"]
-            dljc_result["return_code"] = max(dljc_result.get("return_code", 0), single_dljc_result["return_code"])
-            dljc_result["time"] = dljc_result.get("time", 0) + single_dljc_result["time"]
-    logger.info(dljc_result["output"])
-    #########END
-    # if project:
-    #     project_dir = get_corpus_project_dir(project_name)
-    # else:
-    #     project_dir = get_or_else(overrides, "project_dir", None)
+    if not project_dir:
+        logger.warning("Project directory cannot be found")
+        return dljc_result
 
-    # if not project_dir:
-    #     logger.warning("Project directory cannot be found")
-    #     return dljc_result
+    # TODO(has) - should we replace this statement with project_dir variable?
+    dljc_output = os.path.join(get_corpus_project_dir(project_name), DLJC_OUTPUT_DIR)
+    os.environ['DAIKONDIR'] = os.path.join(LIBS_DIR)
+    logger.info("Found %s project dir", project_dir)
 
-    # # TODO(has) - should we replace this call to get_corpus_project_dir
-    # # with project_dir variable
-    # dljc_output = os.path.join(get_corpus_project_dir(project_name), DLJC_OUTPUT_DIR)
-    # os.environ['DAIKONDIR'] = os.path.join(LIBS_DIR)
-    # logger.info("Found %s project dir", project_dir)
+    with cd(project_dir):
+        # for non .git repositories, the project variable
+        # may be None. Consequently, no build is necessary.
+        build_command = []
+        if project:
+            build_command.extend(project["build"].strip().split())
+        else:
+           build_command.extend(["mvn", "-v"])
 
-    # with cd(project_dir):
-    #     # for non .git repositories, the project variable
-    #     # may be None. Consequently, no build is necessary.
-    #     build_command = []
-    #     if project:
-    #         build_command.extend(project["build"].strip().split())
-    #     else:
-    #        build_command.extend(["mvn", "-v"])
+        dljc_command = [DLJC_BINARY]
+        if project:
+            dljc_command.extend(["-o", dljc_output, '-l', LIBS_DIR, "--timeout", str(timelimit)])
+        else:
+            dljc_command.extend(["--timeout", str(timelimit)])
+        if remaining_tools:
+            dljc_command.extend(["-t", ",".join(remaining_tools)])
+        dljc_command.extend(options)
+        if extra_opts:
+            dljc_command.extend(extra_opts.split())
+        dljc_command.append("--")
+        dljc_command.extend(build_command)
+        dljc_result = run_cmd(dljc_command, "dljc")
 
-    #     dljc_command = [DLJC_BINARY]
-    #     if project:
-    #         dljc_command.extend(["-o", dljc_output, '-l', LIBS_DIR, "--timeout", str(timelimit)])
-    #         # dljc_command.extend(["-o", DLJC_OUTPUT_DIR, "--timeout", str(timelimit)])
-    #     else:
-    #         dljc_command.extend(["--timeout", str(timelimit)])
-    #     if remaining_tools:
-    #         dljc_command.extend(["-t", ",".join(remaining_tools)])
-    #     dljc_command.extend(options)
-    #     if extra_opts:
-    #         dljc_command.extend(extra_opts.split())
-    #     dljc_command.append("--")
-    #     dljc_command.extend(build_command)
-    #     dljc_result = run_cmd(dljc_command, "dljc")
-
-    if dljc_result["return_code"] != 0:
-        logger.error("DLJC command failed on %s with exit code %d", project_name, dljc_result["return_code"])
     return dljc_result
 
 

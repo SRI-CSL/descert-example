@@ -279,19 +279,6 @@ def run_descert_cmd(repos, tools, opts):
         click.echo(f"Failed to retrieve repos from {repos.homedir}.")
         return
 
-    # if build_sample:
-    #     # Mike's comment (May 4th, 2022):
-    #     # The purpose is to create file sampleapp.jar, which is used below.
-    #     # This command consistently crashes one machine running Rocky Linux,
-    #     # but it worked on another.
-    #     # On an Ubuntu machine, I had to comment out test testMessageThrowsAndNullFormat
-    #     # in file AbstractLoggerTest.java .
-    #     success = build_sample_app(repos, repos_info_out)
-    #     if not success:
-    #       click.echo("Failed to create the sample.jar.")
-    #       return
-    #     return # JUST TO TEST the creation of this sample app
-
     dljc_out = run_descert(repos, repos_info_out, tools, opts)
     if not dljc_out or dljc_out is None:
         click.echo("Failed to run DesCert. Check log for additional info.")

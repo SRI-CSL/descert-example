@@ -100,63 +100,36 @@ def download_project(project):
 
 def clean_project(project_name):
     info = common.get_project_info(project_name)
-    ######BEGIN
-    project_dirs = common.get_corpus_project_dirs(project_name, info=info)
-    if not project_dirs or len(project_dirs) == 0:
+    project_dir = common.get_corpus_project_dir(project_name, info=info)
+
+    if not os.path.exists(project_dir):
         return
-    for each_project_dir in project_dirs:
-        with common.cd(each_project_dir):
-            clean_command = info["clean"].strip().split()
-            run_cmd(clean_command)
-            run_cmd(["rm", "-r", common.DLJC_OUTPUT_DIR])
-            
-            if "git-url" in info:
-                run_cmd(["git", "reset", "--hard", "HEAD"])
-                run_cmd(["git", "clean", "-dxf", "."])
-    ######END
-    # project_dir = common.get_corpus_project_dir(project_name, info=info)
 
-    # if not os.path.exists(project_dir):
-    #     return
+    with common.cd(project_dir):
+        clean_command = info["clean"].strip().split()
+        run_cmd(clean_command)
+        run_cmd(["rm", "-r", common.DLJC_OUTPUT_DIR])
 
-    # with common.cd(project_dir):
-    #     clean_command = info["clean"].strip().split()
-    #     run_cmd(clean_command)
-    #     run_cmd(["rm", "-r", common.DLJC_OUTPUT_DIR])
-
-    #     if "git-url" in info:
-    #         run_cmd(["git", "reset", "--hard", "HEAD"])
-    #         run_cmd(["git", "clean", "-dxf", "."])
+        if "git-url" in info:
+            run_cmd(["git", "reset", "--hard", "HEAD"])
+            run_cmd(["git", "clean", "-dxf", "."])
 
 
 def build_project(project_name):
     info = common.get_project_info(project_name)
-    ######BEGIN
-    project_dirs = common.get_corpus_project_dirs(project_name, info=info)
-    if not project_dirs or len(project_dirs) == 0:
+    project_dir = common.get_corpus_project_dir(project_name, info=info)
+
+    if not os.path.exists(project_dir):
         return
+
     if "build" not in info:
         return
-    for each_project_dir in project_dirs:
-        with common.cd(each_project_dir):
-            logger.debug("Cleaning '%s'", project_name)
-            clean_project(project_name)
-            logger.debug("Building '%s", project_name)
-            common.run_dljc(project_name)
-    ######END
-    # project_dir = common.get_corpus_project_dir(project_name, info=info)
-
-    # if not os.path.exists(project_dir):
-    #     return
-
-    # if "build" not in info:
-    #     return
     
-    # with common.cd(project_dir):
-    #     logger.debug("Cleaning '%s'", project_name)
-    #     clean_project(project_name)
-    #     logger.debug("Building '%s", project_name)
-    #     common.run_dljc(project_name)
+    with common.cd(project_dir):
+        logger.debug("Cleaning '%s'", project_name)
+        clean_project(project_name)
+        logger.debug("Building '%s", project_name)
+        common.run_dljc(project_name)
 
 
 def update_project(project, tempdir):
