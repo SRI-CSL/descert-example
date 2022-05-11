@@ -111,6 +111,14 @@ def get_cloned_repos(repos: cl.Repos) -> ty.Optional[ty.List[RepoInfo]]:
 
 def git_repos_in_corpus(repos: cl.Repos, corpus_json_file: str, rs,
                         build: bool) -> ty.Optional[ty.List[RepoInfo]]:
+    
+    if repos.force:
+        # instead of deleting the `corpus` dir, let's rotate it
+        # first to keep results from previous execution. After
+        # that we can re-make it.
+        common.rotate_dir(repos.homedir)
+        repos.mkdir()
+    
     if not os.path.exists(corpus_json_file):
         logger.warning('%s cannot be located.', corpus_json_file)
         return None
@@ -151,6 +159,7 @@ def git_repos_in_corpus(repos: cl.Repos, corpus_json_file: str, rs,
     return results
 
 
+# TODO(has) - remove
 def build_sample_app(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> None:
     jar_command = [
         "jar", "-xf",
@@ -236,7 +245,7 @@ def fetch_deps_cmd(repos):
     default=False,
     help="Build cloned repositories")
 @cl.pass_repos
-def fetch_repos_cmd(repos, rs, build):
+def fetch_repos_cmd(repos, rs, build):    
     corpus_json_file = os.path.join(common.DATA_DIR, 'corpus.json')
     # downloads all resources needed for this project.
     repos_info_out = git_repos_in_corpus(repos, corpus_json_file, rs, build)
