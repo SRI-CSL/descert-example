@@ -254,25 +254,13 @@ def get_corpus_project_dir(project_name, info=None):
         return os.path.join(CORPUS_DIR, project["name"], project["build-dir"])
     return os.path.join(CORPUS_DIR, project["name"])
 
-# TODO(has) - show we replace get_corpus_project_dir with this method?
-def get_corpus_project_dirs(project_name, info=None):
+
+def get_module_dir(project_name, info=None):
     project_info = get_project_info(project_name) if info is None else info
     
-    print("Hello", project_info["build-dir"].split(','))
-    
-    build_dirs = []
-    if "build-dir" in project_info and len(project_info["build-dir"].split(',')) > 1:
-        for each_build_dir in project_info["build-dir"].split(','):
-            build_dirs += [os.path.join(CORPUS_DIR, project_info["name"], each_build_dir)]
-        return build_dirs
-    elif "build-dir" in project_info:
-        build_dirs += [os.path.join(CORPUS_DIR, project_info["name"], project_info["build-dir"])]
-    else:
-        build_dirs += [os.path.join(CORPUS_DIR, project_info["name"])]
-    
-    # only existing ones
-    build_dirs = [build_dir for build_dir in build_dirs if os.path.exists(build_dir)]
-    return build_dirs
+    if "module-dir" in project_info:
+        return os.path.join(CORPUS_DIR, project_info["name"], project_info["module-dir"])
+    return None
 
 
 def get_project_dir(project_name):

@@ -1,0 +1,13 @@
+org.apache.logging.log4j.core.AbstractLifeCycle
+org.apache.logging.log4j.core.AbstractLogEvent
+org.apache.logging.log4j.core.Appender
+org.apache.logging.log4j.core.appender.AbstractAppender
+org.apache.logging.log4j.core.appender.AbstractFileAppender
+org.apache.logging.log4j.core.appender.AbstractManager
+org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender
+org.apache.logging.log4j.core.appender.AbstractWriterAppender
+org.apache.logging.log4j.core.appender.AppenderLoggingException
+org.apache.logging.log4j.core.appender.AppenderSet
+org.apache.logging.log4j.core.appender.AsyncAppender
+org.apache.logging.log4j.core.appender.AsyncAppenderEventDispatcher
+org.apache.logging.log4j.core.appender.ConfigurationFactoryData

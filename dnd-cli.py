@@ -8,10 +8,13 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 import click
-from dataclass_csv import DataclassWriter, DataclassReader
+from dataclass_csv import DataclassReader, DataclassWriter
 
-import common, executor, fetch, utils
 import cli as cl
+import common
+import executor
+import fetch
+import utils
 
 logger = utils.create_logger(__file__)
 
@@ -159,44 +162,33 @@ def git_repos_in_corpus(repos: cl.Repos, corpus_json_file: str, rs,
     return results
 
 
-# TODO(has) - remove
-def build_sample_app(repos: cl.Repos, cloned_projects: ty.List[RepoInfo]) -> None:
-    jar_command = [
-        "jar", "-xf",
-        '../log4j-spring-cloud-config/log4j-spring-cloud-config-samples/log4j-spring-cloud-config-sample-application/target/sampleapp.jar'
-    ]
-    success = False
-    stats = None
-    for each_cloned in cloned_projects:
-        if each_cloned.project == 'log4j':
-            sample_dir = os.path.join(each_cloned.project_dir, 'sample')
-            sample_dir = common.mkdir(sample_dir)
-            with common.cd(sample_dir):
-                stats = common.run_cmd(jar_command)
-
-    success = stats and stats["return_code"] == 0
-    return success
-
-
-def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo], tools: ty.List[str], opts: ty.List[str]) -> dict:
+def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo], tools: ty.List[str], opts: ty.List[str], classlist: str) -> dict:
     cloned_projects = cloned_projects or []
     
     if not tools or len(tools) == 0:
         raise ValueError("Missing tools to execute!")
   
+    opts = [] if opts is None else list(opts)
     if "all" in tools:
         tools = ['randoop', 'chicory', 'csve']
         # if all, use all options
         opts = ['--daikon-xml', '--evidence-json']
     else:
         tools = list(tools) if tools else []
-        if opts:
-            opts = list(opts)
+
+    # if it's not None then must exists. 
+    # `click.Path` option will guarantee this.
+    if 'randoop' in tools and classlist is not None:
+        opts += ['--classlist-txt', os.path.join(classlist)]
 
     out_dict = {}
     for each_cloned in cloned_projects:
-        # if each_cloned.project == 'log4j':
-        #     os.environ['LOG4JDIR'] = os.path.join(each_cloned.project_dir)
+        module_dir = common.get_module_dir(each_cloned.project)
+        if module_dir is not None:
+            opts += ['--module-dir', module_dir]
+        if len(opts) == 0:
+            opts = None
+        
         stats = common.run_dljc(
             each_cloned.project,
             # the `csve` tool gets the *-evidence.json generated
@@ -212,6 +204,7 @@ def run_descert(repos: cl.Repos, cloned_projects: ty.List[RepoInfo], tools: ty.L
             # options=['--daikon-xml'])
             # options=['--evidence-json'])
             options=opts)
+        
         if stats or stats is not None or len(stats) > 0:
             out_dict[each_cloned.project] = stats
 
@@ -269,18 +262,25 @@ def fetch_repos_cmd(repos, rs, build):
     multiple=True,
     type=click.Choice(['randoop', 'chicory', 'csve', 'all']),
     default=["all"],
-    help="List of tools to execute",
+    help="List of do-like-javac tools to execute",
 )
 @click.option(
-    "--addon",
+    "--tool-options",
     "opts",
     multiple=True,
     type=click.Choice(['--daikon-xml', '--evidence-json', '--error-driver', '--override-evidence']),
     default=None,
     help="Addons to forward to do-like-javac tools",
 )
+@click.option(
+    "--randoop-classlist-txt",
+    "classlist",
+    type=click.Path(exists=True, resolve_path=True),
+    default=None,
+    help="Randoop's classlist.txt file",
+)
 @cl.pass_repos
-def run_descert_cmd(repos, tools, opts):
+def run_descert_cmd(repos, tools, opts, classlist):
     # make sure we look in the right directories
     repos.outdir = common.set_output_dir(repos.subdir("outdir"))
     repos.homedir = common.set_corpus_dir(repos.subdir("srcdir"))
@@ -293,10 +293,13 @@ def run_descert_cmd(repos, tools, opts):
         click.echo(f"Failed to retrieve repos from {repos.homedir}.")
         return
 
-    dljc_out = run_descert(repos, repos_info_out, tools, opts)
+    dljc_out = run_descert(repos, repos_info_out, tools, opts, classlist)
     if not dljc_out or dljc_out is None:
-        click.echo("Failed to run DesCert. Check log for additional info.")
+        click.echo("Failed to run DesCert. Check logs for additional info.")
         return
+    
+    if repos.debug:
+        click.echo(dljc_out)
 
 
 if __name__ == "__main__":
