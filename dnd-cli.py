@@ -265,7 +265,7 @@ def fetch_repos_cmd(repos, rs, build):
     help="List of do-like-javac tools to execute",
 )
 @click.option(
-    "--tool-options",
+    "--tool-option",
     "opts",
     multiple=True,
     type=click.Choice(['--daikon-xml', '--evidence-json', '--error-driver', '--override-evidence']),
