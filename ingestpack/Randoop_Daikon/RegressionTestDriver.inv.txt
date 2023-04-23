@@ -1,0 +1,1662 @@
+===========================================================================
+com.foo.Foo:::OBJECT
+===========================================================================
+com.foo.Foo.Foo():::EXIT
+===========================================================================
+com.foo.Foo.mutate():::ENTER
+===========================================================================
+com.foo.Foo.mutate():::EXIT
+===========================================================================
+com.foo.FooManager:::OBJECT
+===========================================================================
+com.foo.FooManager.FooManager(com.foo.Foo):::ENTER
+===========================================================================
+com.foo.FooManager.FooManager(com.foo.Foo):::EXIT
+===========================================================================
+com.foo.FooManager.initialize():::ENTER
+this.foo != null
+===========================================================================
+com.foo.FooManager.initialize():::EXIT
+this.foo == orig(this.foo)
+this.foo != null
+===========================================================================
+com.foo.RegressionTest0:::CLASS
+com.foo.RegressionTest0.debug == false
+===========================================================================
+com.foo.RegressionTest0:::OBJECT
+this has only one value
+===========================================================================
+com.foo.RegressionTest0.RegressionTest0():::EXIT
+===========================================================================
+com.foo.RegressionTest0.test001():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test001():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test002():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test002():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test003():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test003():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test004():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test004():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test005():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test005():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test006():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test006():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test007():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test007():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test008():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test008():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test009():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test009():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test010():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test010():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test011():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test011():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test012():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test012():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test013():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test013():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test014():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test014():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test015():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test015():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test016():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test016():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test017():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test017():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test018():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test018():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test019():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test019():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test020():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test020():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test021():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test021():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test022():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test022():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test023():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test023():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test024():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test024():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test025():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test025():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test026():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test026():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test027():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test027():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test028():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test028():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test029():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test029():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test030():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test030():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test031():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test031():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test032():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test032():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test033():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test033():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test034():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test034():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test035():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test035():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test036():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test036():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test037():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test037():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test038():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test038():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test039():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test039():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test040():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test040():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test041():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test041():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test042():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test042():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test043():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test043():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test044():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test044():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test045():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test045():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test046():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test046():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test047():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test047():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test048():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test048():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test049():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test049():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test050():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test050():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test051():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test051():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test052():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test052():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test053():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test053():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test054():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test054():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test055():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test055():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test056():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test056():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test057():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test057():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test058():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test058():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test059():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test059():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test060():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test060():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test061():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test061():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test062():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test062():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test063():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test063():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test064():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test064():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test065():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test065():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test066():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test066():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test067():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test067():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test068():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test068():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test069():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test069():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test070():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test070():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test071():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test071():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test072():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test072():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test073():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test073():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test074():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test074():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test075():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test075():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test076():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test076():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test077():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test077():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test078():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test078():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test079():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test079():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test080():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test080():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test081():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test081():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test082():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test082():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test083():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test083():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test084():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test084():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test085():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test085():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test086():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test086():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test087():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test087():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test088():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test088():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test089():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test089():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test090():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test090():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test091():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test091():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test092():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test092():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test093():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test093():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test094():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test094():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test095():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test095():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test096():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test096():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test097():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test097():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test098():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test098():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test099():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test099():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test100():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test100():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test101():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test101():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test102():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test102():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test103():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test103():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test104():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test104():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test105():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test105():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test106():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test106():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test107():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test107():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test108():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test108():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test109():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test109():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test110():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test110():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test111():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test111():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test112():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test112():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test113():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test113():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test114():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test114():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test115():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test115():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test116():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test116():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test117():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test117():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test118():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test118():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test119():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test119():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test120():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test120():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test121():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test121():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test122():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test122():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test123():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test123():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test124():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test124():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test125():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test125():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test126():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test126():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test127():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test127():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test128():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test128():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test129():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test129():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test130():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test130():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test131():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test131():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test132():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test132():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test133():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test133():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test134():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test134():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test135():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test135():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test136():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test136():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test137():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test137():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test138():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test138():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test139():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test139():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test140():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test140():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test141():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test141():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test142():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test142():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test143():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test143():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test144():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test144():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test145():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test145():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test146():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test146():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test147():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test147():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test148():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test148():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test149():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test149():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test150():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test150():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test151():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test151():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test152():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test152():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test153():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test153():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test154():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test154():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test155():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test155():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test156():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test156():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test157():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test157():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test158():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test158():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test159():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test159():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test160():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test160():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test161():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test161():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test162():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test162():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test163():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test163():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test164():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test164():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test165():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test165():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test166():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test166():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test167():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test167():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test168():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test168():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test169():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test169():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test170():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test170():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test171():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test171():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test172():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test172():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test173():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test173():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test174():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test174():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test175():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test175():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test176():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test176():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test177():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test177():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test178():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test178():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test179():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test179():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test180():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test180():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test181():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test181():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test182():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test182():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test183():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test183():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test184():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test184():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test185():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test185():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test186():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test186():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test187():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test187():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test188():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test188():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test189():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test189():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test190():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test190():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test191():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test191():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test192():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test192():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test193():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test193():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test194():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test194():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test195():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test195():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test196():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test196():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test197():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test197():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test198():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test198():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test199():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test199():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test200():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test200():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test201():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test201():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test202():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test202():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test203():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test203():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test204():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test204():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test205():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test205():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test206():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test206():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test207():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test207():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test208():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test208():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test209():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test209():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test210():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test210():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test211():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test211():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test212():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test212():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test213():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test213():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test214():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test214():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test215():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test215():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test216():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test216():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test217():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test217():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test218():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test218():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test219():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test219():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test220():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test220():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test221():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test221():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test222():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test222():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test223():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test223():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test224():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test224():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test225():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test225():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test226():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test226():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test227():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test227():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test228():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test228():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test229():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test229():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test230():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test230():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test231():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test231():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test232():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test232():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test233():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test233():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test234():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test234():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test235():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test235():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test236():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test236():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test237():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test237():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test238():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test238():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test239():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test239():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test240():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test240():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test241():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test241():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test242():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test242():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test243():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test243():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test244():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test244():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test245():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test245():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test246():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test246():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test247():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test247():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test248():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test248():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test249():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test249():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test250():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test250():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test251():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test251():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test252():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test252():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test253():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test253():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test254():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test254():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test255():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test255():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test256():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test256():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test257():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test257():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test258():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test258():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test259():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test259():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test260():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test260():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test261():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test261():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test262():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test262():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test263():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test263():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test264():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test264():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test265():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test265():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test266():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test266():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test267():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test267():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test268():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test268():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test269():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test269():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test270():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test270():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test271():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test271():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test272():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test272():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test273():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test273():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test274():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test274():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test275():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test275():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test276():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test276():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test277():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test277():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test278():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test278():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test279():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test279():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test280():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test280():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test281():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test281():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test282():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test282():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test283():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test283():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test284():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test284():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test285():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test285():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test286():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test286():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test287():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test287():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test288():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test288():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test289():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test289():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test290():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test290():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test291():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test291():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test292():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test292():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test293():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test293():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test294():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test294():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test295():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test295():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test296():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test296():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test297():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test297():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test298():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test298():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test299():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test299():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test300():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test300():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test301():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test301():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test302():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test302():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test303():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test303():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test304():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test304():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test305():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test305():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test306():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test306():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test307():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test307():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test308():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test308():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test309():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test309():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test310():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test310():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test311():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test311():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test312():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test312():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test313():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test313():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test314():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test314():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test315():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test315():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test316():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test316():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test317():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test317():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test318():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test318():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test319():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test319():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTest0.test320():::ENTER
+===========================================================================
+com.foo.RegressionTest0.test320():::EXIT
+com.foo.RegressionTest0.debug == orig(com.foo.RegressionTest0.debug)
+===========================================================================
+com.foo.RegressionTestDriver.main(java.lang.String[]):::ENTER
+args has only one value
+args.getClass().getName() == java.lang.String[].class
+args[] contains no nulls and has only one value, of length 3
+args[].toString == [--ppt-select-pattern=com.foo.FooStuffTest, --ppt-select-pattern=com.foo.RegressionTest0, --ppt-select-pattern=com.foo.RegressionTestDriver]
+args[].toString elements one of { "--ppt-select-pattern=com.foo.FooStuffTest", "--ppt-select-pattern=com.foo.RegressionTest0", "--ppt-select-pattern=com.foo.RegressionTestDriver" }
+size(args[]) == 3
+===========================================================================
+com.foo.RegressionTestDriver.main(java.lang.String[]):::EXIT
+args[] == orig(args[])
+args[] contains no nulls and has only one value, of length 3
+args[].toString == [--ppt-select-pattern=com.foo.FooStuffTest, --ppt-select-pattern=com.foo.RegressionTest0, --ppt-select-pattern=com.foo.RegressionTestDriver]
+args[].toString elements one of { "--ppt-select-pattern=com.foo.FooStuffTest", "--ppt-select-pattern=com.foo.RegressionTest0", "--ppt-select-pattern=com.foo.RegressionTestDriver" }
+===========================================================================
+org.junit.Assert.assertNotNull(java.lang.Object):::ENTER
+object != null
+object.getClass().getName() == java.lang.Class.class
+===========================================================================
+org.junit.Assert.assertNotNull(java.lang.Object):::EXIT
+===========================================================================
+org.junit.Assert.assertNotNull(java.lang.String, java.lang.Object):::ENTER
+message == null
+object != null
+object.getClass().getName() == java.lang.Class.class
+===========================================================================
+org.junit.Assert.assertNotNull(java.lang.String, java.lang.Object):::EXIT
+===========================================================================
+org.junit.Assert.assertTrue(java.lang.String, boolean):::ENTER
+message == null
+condition == true
+===========================================================================
+org.junit.Assert.assertTrue(java.lang.String, boolean):::EXIT

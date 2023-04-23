@@ -1,0 +1,12 @@
+description,identifier,title,definedIn_identifier,dataInsertedBy_identifier
+PDF format for files,FORMAT_PDF,PDF,,
+Microsoft Word format for files,FORMAT_WORD,Word,,
+Microsoft Powerpoint format for files,FORMAT_PPT,Powerpoint,,
+CSV format for files,FORMAT_CSV,CSV,,
+XML format for files,FORMAT_XML,XML,,
+C language format for files,FORMAT_C,C,,
+C++ language format for files,FORMAT_CPP,C++,,
+Ada language format for files,FORMAT_ADA,Ada,,
+Java language format for files,FORMAT_JAVA,Java,,
+Txt format for files,FORMAT_TXT,TXT,,
+DynComp format for files,FORMAT_DynComp,DynComp,,
