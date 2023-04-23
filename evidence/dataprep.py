@@ -1,3 +1,7 @@
+# Creates csv files from JSON files that were created by the plugin.
+# Evaluators only care about CSV files.  The JSON files were created for our own convenience.
+# The schemas of the CSV and JSON files are hard-coded in this file.
+
 import csv
 import datetime
 import functools

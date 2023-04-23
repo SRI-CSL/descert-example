@@ -93,6 +93,7 @@ import_data(){
 	popd &>/dev/null # Exit project's dir
 }
 
+# This is the main entry point, which calls one of the above three procedures.
 case $1 in
   cli)
 	shift
