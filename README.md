@@ -24,7 +24,7 @@ Below are a few scenarios I've tried in order to debug this project's debug proc
 
 ```sh
 › docker run --rm -it descert/descert-example-circleci /bin/bash
-# ./gradlew daikonRun --debug
+# ./gradlew runDaikon --debug --stacktrace
 ```
 
 3. Error (from daikon.DynComp)
