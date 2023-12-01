@@ -27,3 +27,12 @@ runDaikon {
     outputDir = file("${projectDir}/build/daikon-output")
     testDriverPackage = "com.foo"
 }
+
+allprojects {
+  tasks.withType(Exec) {
+    doFirst {
+      println commandLine
+    }
+  }
+}
+
