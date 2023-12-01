@@ -23,7 +23,7 @@ Below are a few scenarios I've tried in order to debug this project's debug proc
 2. Run it
 
 ```sh
-› docker run --rm -it descert-example-circleci /bin/bash
+› docker run --rm -it descert/descert-example-circleci /bin/bash
 # ./gradlew daikonRun --debug
 ```
 
@@ -45,7 +45,7 @@ See log: [circleci-build.txt](https://github.com/SRI-CSL/descert-example/files/5
 2. Run it
 
 ```sh
-› docker run --rm -it descert-example-amzn /bin/bash
+› docker run --rm -it descert/descert-example-amzn /bin/bash
 # ./gradlew daikonRun --debug
 ```
 
@@ -244,7 +244,3 @@ Then
 ```
 
 **Here are the results (from daikon.DynComp)**: [dynComp-rack.txt](https://github.com/SRI-CSL/descert-example/files/5569243/dynComp-rack.txt)
-
-
-
-
